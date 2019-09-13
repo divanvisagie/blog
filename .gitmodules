@@ -1,0 +1,3 @@
+[submodule "public"]
+	path = public
+	url = git@github.com:divanvisagie/divanvisagie.github.io.git
