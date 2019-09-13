@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Building a Desktop UI in Go</title>
+  <meta property="og:title" content="Building a Desktop UI in Go" />
+  <meta name="twitter:title" content="Building a Desktop UI in Go" />
+  <meta name="description" content="Is it a good idea?">
+  <meta property="og:description" content="Is it a good idea?">
+  <meta name="twitter:description" content="Is it a good idea?">
+  <meta name="author" content="Divan Visagie"/>
+  <link href='https://dvisagie.com/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="https://dvisagie.com/img/avatar.jpeg" />
+  <meta name="twitter:image" content="https://dvisagie.com/img/avatar.jpeg" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://dvisagie.com/post/building-a-desktop-ui-in-go/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Divan Visagie" />
+
+  <meta name="generator" content="Hugo 0.55.1" />
+  <link rel="canonical" href="https://dvisagie.com/post/building-a-desktop-ui-in-go/" />
+  <link rel="alternate" href="https://dvisagie.com/index.xml" type="application/rss+xml" title="Divan Visagie">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://dvisagie.com/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://dvisagie.com/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="https://dvisagie.com/css/highlight.min.css" />
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-140923268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://dvisagie.com">Divan Visagie</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="https://dvisagie.com/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="https://dvisagie.com/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="Divan Visagie" href="https://dvisagie.com">
+            <img class="avatar-img" src="https://dvisagie.com/img/avatar.jpeg" alt="Divan Visagie" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Building a Desktop UI in Go</h1>
+                
+                  
+                    <h2 class="post-subheading">Is it a good idea?</h2>
+                  
+                
+                
+                  <span class="post-meta">
+  Posted on 21 September 2017
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p><img src="https://dvisagie.com/img/go-desktop-ui-1.jpeg" alt="Header Image" /></p>
+
+<p>I started my career as a Software Developer building iOS apps. I had a passion for crafting user interfaces that had been realized in college when I leaned heavily towards the menu building portion of a 2D game I was writing at the time. As time moved on I found myself doing more and more web UI’s , which makes sense, that is the way things are heading, especially in the enterprise.</p>
+
+<p>After some <a href="https://medium.com/from-the-couch/adventures-in-go-ba217c29b51d">tinkering with Go</a> however I was eager to give desktop development another shot, since it’s really easy to get things up and running in the language. Browsing through the GUI section in awesome-go lists a few options, which can be boiled down to the few technologies that the list of libraries is actually built on top of.</p>
+
+<ul>
+<li>HTML/CSS electron like stuff</li>
+<li>GTK</li>
+<li>Qt</li>
+<li>Windows only stuff</li>
+<li>Libui</li>
+</ul>
+
+<p>Immediately I wrote off the Windows only library. Not because I dislike Windows, or don’t run it, in fact the machine I’m typing this on is a Windows machine, and my app would probably more than likely be used on a Windows box. The problem I have is that I firmly believe that new desktop software should without question run on at least macOS, Windows and Linux. As a user who swaps OS quite frequently I would like to have a familiar tool that I can take with me, so that forms part of the decision when I choose to buy in to a piece of software, let alone pay for it.</p>
+
+<p>Anyway, that was a little tangential, my point is, I did not want to write an application for only one platform, and I don’t think that is a ridiculous ask in 2017.</p>
+
+<p>When it comes to the HTML stuff. I’m not really a fan when it comes to building desktop apps using web technologies. I won’t even attempt that tangent here, but let’s just say I think the web should be the web and the desktop should be the desktop. I may stretch to use it if the scenario makes sense, but for me, in this instance, it did not.</p>
+
+<p>I dismissed GTK purely out of ignorance, although I had played with it in the past in Linux, I felt that it may be a little bit of a heavy dependency on the other platforms, I may be wrong about that but I thought I would give this one a miss out of intuition.</p>
+
+<p>Now, let’s talk about Qt. I have used it with success before in C++ using Qt creator, but that was very long ago. A time when things were less confusing and the project was actually run by Nokia. Just finding the download link for the “Open Source” Qt SDK was a nightmare, and while I was walking through the valley shadowed with “Buy” buttons I could not help but wonder how Open Source Qt really is these days, it certainly did not make me feel comfortable with using the thing. And that’s coming from someone who until very recently wasn’t that bothered by the React license.</p>
+
+<p>Dodgy websites aside, there is another problem with Qt. Once I got the already quite large Windows Installer onto my machine and pointed it at a directory in which to throw itself. It complained that there was not enough space; Qt had threatened to take up 30GB of space! 30 GB! This is insane, what are we running a copy of Shadow of Mordor behind every button?</p>
+
+<blockquote>
+<p><img src="https://dvisagie.com/img/go-desktop-ui-2.jpeg" alt="Lotr" />
+Behind every QButton lies a hero</p>
+</blockquote>
+
+<p>Needless to say, I was not impressed. On top of that the experiences I had had with go up to this point led me to believe that there should be an easier way</p>
+
+<p>The libui based library “ui” is by far the quickest way to get a window to show up that’s written in Go. It’s based on a cross platform C library from the same author and all you have to do to set it up is use “go get”. Not all is sunshine and roses though. I initially set up the project on my Windows machine at home and everything seemed fine. But when I tried to run it on my MacBook Pro, things went a little crazy.</p>
+
+<p>At this point, it may help to clarify what I was actually trying to build. Since I am new to Go, I wanted to build something simple, I’m also not trying to make the next big thing. Just a <a href="https://github.com/divanvisagie/json-translator">simple tool</a> that translates certain values in a JSON file that may make my life easier when it comes to testing translations.</p>
+
+<p>After spending some time with a <a href="https://medium.com/@stvndall">colleague</a> trying to figure out why the JSON would not render until the window was resized in what at the time was just a label for testing, we decided to try it on his Ubuntu machine… it worked just fine.</p>
+
+<p>My current version of the software now uses a multi-line “Entrybox”, which I was only able to achieve thanks to a fork of “ui” that got a little impatient. The main project is promising to resolve this and get the Multi-line control in , and I’m banking on that for my macOS support because right now that fork doesn’t seem to really work at all.</p>
+
+<p>Anyway here is a great example of what the thing is supposed to look like and does on <sup>2</sup>&frasl;<sub>3</sub> operating systems.</p>
+
+<p><img src="https://dvisagie.com/img/go-desktop-ui-3.png" alt="Screenshot" /></p>
+
+<p>Right now , I would not call it the most complete application. I still have yet to solve the problem of unloading the options from the dropdown key selector without completely destroying them and wrecking my layout. The library was a good way to get started, but it looks like it still has a lot of work before it competes with something like QT.</p>
+
+<p>The real practical question that I have from all of this is, if the UI libraries just aren’t there. Does it make sense to build a desktop application in this language?</p>
+
+<p>Well like I said, I just started getting back into this, and a lot has changed. My next point of investigation will be attempting something similar in Kotlin, which means I will have the heritage of the Java ecosystem on my side, It seems to be working for JetBrains.</p>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+        
+          <li class="next">
+            <a href="https://dvisagie.com/post/nodejs-with-typescript/" data-toggle="tooltip" data-placement="top" title="Node.js with TypeScript">Next Post &rarr;</a>
+          </li>
+        
+      </ul>
+
+      
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "dvisagie-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://gitlab.com/divan" title="GitLab">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-gitlab fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/divanvisagie" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/divan-visagie" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/divanvisagie" title="Instagram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="https://dvisagie.com/index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Divan Visagie
+          &nbsp;&bull;&nbsp;
+          2019
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://dvisagie.com">Divan Visagie</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.55.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://dvisagie.com/js/main.js"></script>
+<script src="https://dvisagie.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>typescript on Divan Visagie</title>
+    <link>https://dvisagie.com/tags/typescript/</link>
+    <description>Recent content in typescript on Divan Visagie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 02 Jan 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dvisagie.com/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Node.js with TypeScript</title>
+      <link>https://dvisagie.com/post/nodejs-with-typescript/</link>
+      <pubDate>Wed, 02 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dvisagie.com/post/nodejs-with-typescript/</guid>
+      <description>The idea with this article is to simply provide a quick tutorial on how to set up a simple Node.js project with nodemon for development reloading and of course unit tests. This means I have gone for a minimalist approach and tried to keep everything as generic as possible by not doing things like sticking to my preference of Yarn or adding unnecessary dependencies.
+ Let’s start off the same way we start any node project, running npm init in our project’s folder.</description>
+    </item>
+    
+  </channel>
+</rss>

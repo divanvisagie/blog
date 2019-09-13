@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Divan Visagie</title>
+    <link>https://dvisagie.com/post/</link>
+    <description>Recent content in Posts on Divan Visagie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 03 Jun 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dvisagie.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Moving from Medium</title>
+      <link>https://dvisagie.com/post/moving-from-medium/</link>
+      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dvisagie.com/post/moving-from-medium/</guid>
+      <description>For a few years now my blog has primarily been on the Medium platform, and for good reason. The platform provided a clean interface with a nice easy to use editor and supports cool things like notes, highlights and allowing editors to give their two cents on an unpublished article. The main draw however is that it&amp;rsquo;s a popular platform and the theory is that it would draw more views by simply being on medium or having better SEO or whatever.</description>
+    </item>
+    
+    <item>
+      <title>Node.js with TypeScript</title>
+      <link>https://dvisagie.com/post/nodejs-with-typescript/</link>
+      <pubDate>Wed, 02 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dvisagie.com/post/nodejs-with-typescript/</guid>
+      <description>The idea with this article is to simply provide a quick tutorial on how to set up a simple Node.js project with nodemon for development reloading and of course unit tests. This means I have gone for a minimalist approach and tried to keep everything as generic as possible by not doing things like sticking to my preference of Yarn or adding unnecessary dependencies.
+ Let’s start off the same way we start any node project, running npm init in our project’s folder.</description>
+    </item>
+    
+    <item>
+      <title>Building a Desktop UI in Go</title>
+      <link>https://dvisagie.com/post/building-a-desktop-ui-in-go/</link>
+      <pubDate>Thu, 21 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dvisagie.com/post/building-a-desktop-ui-in-go/</guid>
+      <description>I started my career as a Software Developer building iOS apps. I had a passion for crafting user interfaces that had been realized in college when I leaned heavily towards the menu building portion of a 2D game I was writing at the time. As time moved on I found myself doing more and more web UI’s , which makes sense, that is the way things are heading, especially in the enterprise.</description>
+    </item>
+    
+  </channel>
+</rss>
