@@ -1,4 +1,5 @@
-baseurl = "https://divanvisagie.github.io"
+# baseurl = "https://divanvisagie.github.io"
+baseurl = "/"
 contentdir    = "content"
 layoutdir     = "layouts"
 publishdir    = "public"
