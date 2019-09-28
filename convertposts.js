@@ -5,6 +5,7 @@ const hljs = require('highlight.js'); // https://highlightjs.org/
 
 // Actual default values
 const md = require('markdown-it')({
+    linkify: true,
   highlight: function (str, lang) {
     if (lang && hljs.getLanguage(lang)) {
       try {
