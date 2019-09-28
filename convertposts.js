@@ -3,6 +3,11 @@ const fs = require('fs')
 
 const hljs = require('highlight.js'); // https://highlightjs.org/
 
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.replace(new RegExp(search, 'g'), replacement);
+};
+
 // Actual default values
 const md = require('markdown-it')({
     linkify: true,
@@ -61,7 +66,7 @@ function getJsonFromMetaString(metaString) {
         .trim()
         .split('\n')
         .map(line => {
-        return line.split(":").map(x => `"${x}"`).join(':')
+        return line.split(":").map(x => `"${x.trim()}"`).join(':')
     })
     .filter(x => !x.includes("["))
     .join(',')
@@ -104,6 +109,8 @@ async function main() {
         `
 
         x.html = layoutHtml.replace('{{CONTENT}}', postHtmlContent)
+        x.html = x.html.replaceAll('{{TITLE}}', x.meta.title);
+        x.html = x.html.replaceAll('{{DESCRIPTION}}', x.meta.subtitle);
         return x;
     });
 
@@ -120,8 +127,10 @@ async function main() {
         })
     })
 
-    let indexHtml = fs.readFileSync(path.join(__dirname,'index.html'))
+    let indexHtml = fs.readFileSync(path.join(__dirname,'index.html'));
     indexHtml = layoutHtml.replace('{{CONTENT}}', indexHtml);
+    indexHtml = indexHtml.replaceAll("{{TITLE}}", 'Divan Visagie - Blog');
+    indexHtml = indexHtml.replaceAll("{{DESCRIPTION}}", "Divan's Personal Blog");
 
     const lis = posts.map(post => 
         `<li>
