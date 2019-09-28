@@ -3,7 +3,6 @@ title: Building a Desktop UI in Go
 subtitle: Is it a good idea?
 date: 2017-09-21
 tags: ["golang", "desktop", "ui"]
-
 ---
 ![Header Image](/img/go-desktop-ui-1.jpeg)
 
