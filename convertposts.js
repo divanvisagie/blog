@@ -139,6 +139,18 @@ async function main() {
     });
 
 
+    //copy images across
+    let copydir = require('copy-dir');
+    copydir('static/img', 'public/img', {
+        utimes: true,  // keep add time and modify time
+        mode: true,    // keep file mode
+        cover: true    // cover file when exists, default is true
+    }, function(err){
+        if(err) {
+            console.error('error copying images', err)
+        }
+        console.log('done');
+    });
 }
 
 main();
