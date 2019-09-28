@@ -1,5 +1,6 @@
 const path = require('path');
-const fs = require('fs')
+const fs = require('fs');
+const _ = require('underscore');
 
 const hljs = require('highlight.js'); // https://highlightjs.org/
 
@@ -87,7 +88,7 @@ async function main() {
     const layoutHtml = fs.readFileSync(path.join(__dirname,'layout.html')).toString();
 
     const files = await getFilesInPath(directoryPath);
-    const posts = files.map(x => {
+    let posts = files.map(x => {
         const p = path.join(directoryPath, x);
         return {
             path: p,
@@ -103,8 +104,9 @@ async function main() {
         let postHtmlContent = getHtmlForMarkdown(x.contents);
 
         postHtmlContent = `
-            <h1>${x.meta.title}</h1>
-            <h2>${x.meta.subtitle}</h2>
+            <h1 style="margin-bottom:0;">${x.meta.title}</h1>
+            <h2 style="margin:0;">${x.meta.subtitle}</h2>
+            <span style="color: #4C566A; font-size: 12px;">${x.meta.date}</span>
             ${postHtmlContent}
         `
 
@@ -114,6 +116,8 @@ async function main() {
         return x;
     });
 
+    posts = _.sortBy(posts, x => x.meta.date).reverse();
+    
     posts.forEach(x => {
         const newFilePath = path.join(__dirname,'public', 'post', x.postName);
         if (!fs.existsSync(newFilePath))
@@ -135,6 +139,7 @@ async function main() {
     const lis = posts.map(post => 
         `<li>
             <a href="post/${post.postName}">${post.meta.title}</a>
+            <span>${post.meta.date}</span>
             <p>${post.meta.subtitle}</p>
         </li>`
         ).join('\n');
