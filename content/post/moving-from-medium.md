@@ -1,6 +1,6 @@
 ---
-title: "Moving from Medium"
-subtitle: "Does it make sense?"
+title: Moving from Medium
+subtitle: Does it make sense?
 date: 2019-06-03
 tags: ["opinion", "thoughts"]
 ---
@@ -34,7 +34,7 @@ Searchablity is a large driver of traffic for this kind of content and that brin
 
 >
 ![You know nothing Jon Snow](/img/jon-knows-nothing.gif)
-You know nothing SEO
+> You know nothing SEO
 
 And that brings me to this very site you are reading this on, it's an experiment to see if the traffic I get is affected, and whether or not I am even worried if there is a change. I have ported over my most popular Medium article to see if it will eventually catch up when it comes to search driven traffic and also intend to import stuff from platforms I have long ago let go stale.
 

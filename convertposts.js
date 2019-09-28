@@ -46,6 +46,38 @@ function getHtmlForMarkdown(markdown) {
     return md.render(markdown)
 }
 
+function getMetaString(markdown) {
+    return markdown.split('---')[1];
+}
+
+function getMarkdownWithoutMetaString(markdown, metaString) {
+    const metaWithMarkers = `---${metaString}---`;
+    return markdown.replace(metaWithMarkers,'');
+}
+
+function getJsonFromMetaString(metaString) {
+    const stringy = metaString
+        .split("\r").join("") //windows stuff
+        .trim()
+        .split('\n')
+        .map(line => {
+        return line.split(":").map(x => `"${x}"`).join(':')
+    })
+    .filter(x => !x.includes("["))
+    .join(',')
+    console.log(stringy)
+    const json = `{ ${stringy} }`;
+
+    let parsed;
+    try {
+        parsed = JSON.parse(json);
+    } catch (e) {
+        console.error('error parsing',e);
+        console.error(json);
+    }
+    return parsed;
+}   
+
 async function main() {
     const layoutHtml = fs.readFileSync(path.join(__dirname,'layout.html')).toString();
 
@@ -55,10 +87,22 @@ async function main() {
         return {
             path: p,
             postName: x.split('.')[0],
-            contents: getContentsOfFile(p) 
+            contents: getContentsOfFile(p)
+                .split('\r').join('') //remove windows line endings
         }
     }).map(x => {
-        const postHtmlContent = getHtmlForMarkdown(x.contents);
+        const metaString = getMetaString(x.contents);
+        x.meta = getJsonFromMetaString(metaString);
+
+        x.contents = getMarkdownWithoutMetaString(x.contents, metaString);
+        let postHtmlContent = getHtmlForMarkdown(x.contents);
+
+        postHtmlContent = `
+            <h1>${x.meta.title}</h1>
+            <h2>${x.meta.subtitle}</h2>
+            ${postHtmlContent}
+        `
+
         x.html = layoutHtml.replace('{{CONTENT}}', postHtmlContent)
         return x;
     });
@@ -80,7 +124,10 @@ async function main() {
     indexHtml = layoutHtml.replace('{{CONTENT}}', indexHtml);
 
     const lis = posts.map(post => 
-        `<li><a href="post/${post.postName}">${post.postName}</a></li>`
+        `<li>
+            <a href="post/${post.postName}">${post.meta.title}</a>
+            <p>${post.meta.subtitle}</p>
+        </li>`
         ).join('\n');
     
     indexHtml = indexHtml.replace('{{CONTENT}}', lis);

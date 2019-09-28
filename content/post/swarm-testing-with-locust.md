@@ -25,7 +25,6 @@ Below is my super secure server implementation using flask, a lightweight soluti
 ```py
 from flask import Flask, request, abort
 app = Flask(__name__)
-
 token = 'a-very-real-token'
 
 @app.route('/login', methods = ['POST'])
@@ -38,7 +37,7 @@ def hello():
     if token != token:
         abort(401)
     print(f'Found token {token}')
-    return 'Hello Locust!
+    return 'Hello Locust!'
 ```
 
 I ran a single instance to test against simply using the dev server: `FLASK_APP=server.py flask run`

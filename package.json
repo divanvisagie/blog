@@ -1,0 +1,14 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "Builder for my blog",
+  "main": "index.js",
+  "repository": "git@github.com:divanvisagie/blog.git",
+  "author": "Divan Visagie <visagiedivan@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "highlight.js": "^9.15.10",
+    "markdown-it": "^10.0.0"
+  }
+}
