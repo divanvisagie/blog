@@ -2,9 +2,9 @@
 title: Swarm testing with Locust.io for the first time
 subtitle: A beginners guide
 date: 2018-10-01
+header: /img/locust-head.png
 tags: ["testing", "architecture"]
 ---
-![Header Image](/img/locust-head.png)
 
 When you build services for the web you want to make sure they don’t fall over completely when [too many users](http://www.whatisfailwhale.info/) hit your system all at one time. What you want, is to be able to simulate that load spike before it happens in production.
 

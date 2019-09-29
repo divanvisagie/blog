@@ -86,6 +86,7 @@ function getJsonFromMetaString(metaString) {
 
 async function main() {
     const layoutHtml = fs.readFileSync(path.join(__dirname,'layout.html')).toString();
+    const postHtml = fs.readFileSync(path.join(__dirname,'post.html')).toString();
 
     const files = await getFilesInPath(directoryPath);
     let posts = files.map(x => {
@@ -103,14 +104,24 @@ async function main() {
         x.contents = getMarkdownWithoutMetaString(x.contents, metaString);
         let postHtmlContent = getHtmlForMarkdown(x.contents);
 
+        
         postHtmlContent = `
             <h1 style="margin-bottom:0;">${x.meta.title}</h1>
             <h2 style="margin:0;">${x.meta.subtitle}</h2>
             <span style="color: #4C566A; font-size: 12px;">${x.meta.date}</span>
             ${postHtmlContent}
         `
+        let contentsOfLayout = postHtml.replace("{{CONTENT}}",postHtmlContent);
 
-        x.html = layoutHtml.replace('{{CONTENT}}', postHtmlContent)
+        if (x.meta.header) {
+            contentsOfLayout = ` 
+                <img class="post-header" src="${x.meta.header}"></img>
+                ${contentsOfLayout}
+            `;
+        }
+
+
+        x.html = layoutHtml.replace('{{CONTENT}}', contentsOfLayout)
         x.html = x.html.replaceAll('{{TITLE}}', x.meta.title);
         x.html = x.html.replaceAll('{{DESCRIPTION}}', x.meta.subtitle);
         return x;

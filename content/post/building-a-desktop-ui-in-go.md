@@ -2,9 +2,9 @@
 title: Building a Desktop UI in Go
 subtitle: Is it a good idea?
 date: 2017-09-21
+header: /img/go-desktop-ui-1.jpeg
 tags: ["golang", "desktop", "ui"]
 ---
-![Header Image](/img/go-desktop-ui-1.jpeg)
 
 I started my career as a Software Developer building iOS apps. I had a passion for crafting user interfaces that had been realized in college when I leaned heavily towards the menu building portion of a 2D game I was writing at the time. As time moved on I found myself doing more and more web UI’s , which makes sense, that is the way things are heading, especially in the enterprise.
 

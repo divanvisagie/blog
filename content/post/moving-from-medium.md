@@ -2,9 +2,9 @@
 title: Moving from Medium
 subtitle: Does it make sense?
 date: 2019-06-03
+header: /img/moving-from-medium.jpeg
 tags: ["opinion", "thoughts"]
 ---
-![Header Image](/img/moving-from-medium.jpeg)
 
 For a few years now my blog has primarily been on the [Medium](medium.com) platform, and for good reason. The platform provided a clean interface with a nice easy to use editor and supports cool things like notes, highlights and allowing editors to give their two cents on an unpublished article. The main draw however is that it's a popular platform and the theory is that it would draw more views by simply being on medium or having better SEO or whatever. I have very little knowledge of SEO in fact, that's kind of the point. I wouldn't need to, it would all be handled for me. Right?
 
