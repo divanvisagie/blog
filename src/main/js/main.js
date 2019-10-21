@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const _ = require('underscore');
+const copydir = require('copy-dir');
 
 const hljs = require('highlight.js'); // https://highlightjs.org/
 
@@ -27,7 +28,7 @@ const md = require('markdown-it')({
     }
 });
 
-const directoryPath = path.join(ROOT, 'content', 'post')
+const POSTS_DIR = path.join(ROOT, 'content', 'post')
 
 
 async function getFilesInPath(directoryPath) {
@@ -105,13 +106,14 @@ async function main() {
     const layoutTemplate = fs.readFileSync(path.join(ROOT, 'layout.html')).toString();
     const postTemplate = fs.readFileSync(path.join(ROOT, 'post.html')).toString();
 
-    const files = await getFilesInPath(directoryPath);
-    let posts = files.map(x => {
-        const p = path.join(directoryPath, x);
+    const postFolders = (await getFilesInPath(POSTS_DIR))
+        .filter(x => !x.includes(".")); //filter out files, we only want direcotries
+
+    let posts = postFolders.map(x => {
         return {
-            path: p,
+            path: path.join(POSTS_DIR, x),
             postName: x.split('.')[0],
-            contents: getContentsOfFile(p)
+            contents: getContentsOfFile(path.join(POSTS_DIR, x, 'index.md'))
                 .split('\r').join('') //remove windows line endings
         }
     }).map(x => {
@@ -180,11 +182,11 @@ async function main() {
 
 
     //copy images across
-    let copydir = require('copy-dir');
-    copydir('static/img', 'public/img', {
+    copydir(POSTS_DIR, path.join(ROOT,'public', 'post'), {
         utimes: true,  // keep add time and modify time
         mode: true,    // keep file mode
-        cover: true    // cover file when exists, default is true
+        cover: true,   // cover file when exists, default is true,
+        filter: (stat, path, filename) => !path.includes('.md')
     }, function (err) {
         if (err) {
             console.error('error copying images', err)

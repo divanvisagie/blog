@@ -4,7 +4,7 @@ subtitle: Setting up a Node.js app with TypeScript, Nodemon, and Mocha/Chai test
 date: 2019-01-02
 tags: ["typescript", "node"]
 ---
-![Header Image](/img/node-ts-head.png)
+![Header Image](node-ts-head.png)
 
 >
 The idea with this article is to simply provide a quick tutorial on how to set up a simple [Node.js](https://nodejs.org/) project with nodemon for development reloading and of course unit tests. This means I have gone for a minimalist approach and tried to keep everything as generic as possible by not doing things like sticking to my preference of [Yarn](https://yarnpkg.com/en/) or adding unnecessary dependencies.
@@ -29,7 +29,7 @@ Here we get a glimpse of the tool that is helping us achieve this whole thing; [
 You will also notice that I set our main option to *index.ts* instead of *index.js*, later on this will tell tools like nodemon where to look for our starting point.
 
 
-![Image](/img/node-ts-1.png)
+![ScreenShot of npm init output](node-ts-1.png)
 
 Next we need to set up TypeScript in the project
 
@@ -80,7 +80,7 @@ npx ts-node index.ts
 
 We will get the following error:
 
-![Image](/img/node-ts-2.png)
+![Screenshot of npx ts-node index.ts output with error](node-ts-2.png)
 
 This is because the default *tsconfig.json* has strict type checking enabled, removing `“strict”: true` would indeed fix this error, but since you are going through the effort of setting up TypeScript, you probably really want type safety. So the other option is to install the types for any packages you may need, in this example, for express:
 
@@ -89,7 +89,7 @@ npm i @types/express
 ```
 Now when we run `npx ts-node index.ts` we should get a running express server:
 
-![Image](/img/node-ts-3.png)
+![Screenshot of npm ts-node index.ts output](node-ts-3.png)
 
 We don’t however want to be running our app via ts-node in production, so let’s set up a start script that will build our JavaScript and run our app in the regular Node.js environment.
 
@@ -140,7 +140,7 @@ describe('When we run tests', () => {
 
 This certainly isn’t a useful test but this isn’t a unit testing tutorial, we just want to see that test’s run in our setup. Let’s run `npm test`:
 
-![Image](/img/node-ts-4.png)
+![Screenshot of npm test output](node-ts-4.png)
 
 Neat! our test’s work.
 

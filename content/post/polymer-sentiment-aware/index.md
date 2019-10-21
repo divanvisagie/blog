@@ -8,7 +8,7 @@ If you scroll through your Twitter feed sometimes you may see a lot of negativit
 
 This of course brought to mind a [relevant xkcd comic](https://xkcd.com/481/):
 
-![XKCD Comic](/img/polymer-sentiment-xkcd.png)
+![XKCD Comic](polymer-sentiment-xkcd.png)
 > Relevant xkcd https://xkcd.com/481/
 
 Instead of a virus though, I thought to build a custom input control that would passively warn the user by changing color.
@@ -22,7 +22,7 @@ I have been using a lot of [Polymer](https://www.polymer-project.org/) lately so
 
 In the end, the element it turned out like this:
 
-![Picture of control](/img/polymer-sentiment-input-ice.png)
+![Picture of control](polymer-sentiment-input-ice.png)
 
 When I started out with the experiment. The first thing I wanted to know was what I would get back from sentiment APIs. I wanted to build a small back end for this control to prove the concept and make sure that it’s actually viable. I knew that I would want to test it against Stanford’s [CoreNLP](https://stanfordnlp.github.io/CoreNLP/) eventually, because I wanted this to be viable without sending your data to a third party However, for starters I just wanted to see the thing work. Knowing that the easiest way to use CoreNLP is through it’s native Java API, I used that as the excuse to use Scala.
 
@@ -128,9 +128,9 @@ The full code of the control below. Pretty simple stuff.
 
 In terms of minimum specs, the app was done at this point. And this is where the Ice Cream examples came from.
 
-![Picture of control with red State](/img/polymer-sentiment-input-ice-red.png)
-![Picture of control with grey State](/img/polymer-sentiment-input-ice-grey.png)
-![Picture of control with green State](/img/polymer-sentiment-input-ice-green.png)
+![Picture of control with red State](polymer-sentiment-input-ice-red.png)
+![Picture of control with grey State](polymer-sentiment-input-ice-grey.png)
+![Picture of control with green State](polymer-sentiment-input-ice-green.png)
 
 ## Introducing CoreNLP to the mix
 CoreNLPs sentiment functionality is pretty young, finding actual code snippets was a little difficult. So I relied a lot on related Stack Overflow questions for examples, and for anyone who wants to import the library in sbt, here’s what you need to add:

@@ -2,7 +2,7 @@
 title: Moving from Medium
 subtitle: Does it make sense?
 date: 2019-06-03
-header: /img/moving-from-medium.jpeg
+header: moving-from-medium.jpeg
 tags: ["opinion", "thoughts"]
 ---
 
@@ -29,14 +29,14 @@ The other argument I had was traffic. Surely medium was driving traffic to my po
 
 So I took a look at my [most popular](https://dvisagie.com/post/building-a-desktop-ui-in-go/) post and found that only 10% of the traffic comes from inside Medium itself, the rest comes from either Google searches, places I posted links, or direct shares when people found the content useful.
 
-![Traffic Stats](/img/moving-to-medium-1.png)
+![Screenshot of Medium Traffic Stats](moving-to-medium-1.png)
 
 To me 10% is a worthy sacrifice for feeling more at home in markdown and possibly producing more content and thus making up for lost views. Plus the point of me counting views isn't because I want some sort of benefit but rather because I live in the hopes that my content is useful and therefore I want it to be visible... and searchable.
 
 Searchablity is a large driver of traffic for this kind of content and that brings me to the part I don't know. Will my traffic suffer if I host my own content? As I mentioned I know nothing SEO.
 
 >
-![You know nothing Jon Snow](/img/jon-knows-nothing.gif)
+![You know nothing Jon Snow gif](jon-knows-nothing.gif)
 > You know nothing SEO
 
 And that brings me to this very site you are reading this on, it's an experiment to see if the traffic I get is affected, and whether or not I am even worried if there is a change. I have ported over my most popular Medium article to see if it will eventually catch up when it comes to search driven traffic and also intend to import stuff from platforms I have long ago let go stale.

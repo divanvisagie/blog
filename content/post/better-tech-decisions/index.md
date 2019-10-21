@@ -2,7 +2,7 @@
 title: Making better technology decisions
 subtitle: Facing the interminable news feed
 date: 2017-06-15
-header: /img/tech-decisions.jpg
+header: tech-decisions.jpg
 ---
 
 Don’t reinvent the wheel! Build on the shoulders of giants! These terms have been irreversibly planted into our heads, and for good reason, but in an industry that is continually producing new options and opinions , it can be difficult to decide who’s shoulders to stand on.
@@ -19,7 +19,7 @@ The best Ideas , don’t arrive in chronological order.
 
 Ask yourself, Is this your data center?
 
-![Picture of Google Data Center](/img/google-data-center.jpeg)
+![Picture of Google Data Center](google-data-center.jpeg)
 > Not your Data Center
 
 Is it four stories high? Google developed MapReduce to run on this sort of hardware, an entire building. Yet they also own Firebase, because they know that sometimes all you need to do is store a JSON object.
@@ -36,11 +36,11 @@ It was difficult to find objective data to start with, Google results on this to
 
 So I turned to the only people who seem to bother collecting data on this sort of thing. I looked at the results of the 2016 Stack Overflow survey. I had some talking points on the 2017 results, but the data had changed by the next time I went to the site, so I deemed it as unstable, and have reverted back to the long term support version.
 
-![Tech decision language stats](/img/tech-decisions-lang-stats.png)
+![Tech decision language stats](tech-decisions-lang-stats.png)
 
 The results for the most loved technology show that React is indeed loved by people, and that would explain why there are so many blog posts, tweets and talks covering it, but it sits among programming languages, the top being a fairly new language not very well known for being used in production.
 
-![Tech decision language stats](/img/tech-decisions-lang-stats-2.png)
+![Tech decision language stats](tech-decisions-lang-stats-2.png)
 
 Suspicions are confirmed when we look at the most popular tech data , which shows that Angular is the absolute king of JavaScript frameworks. React only has half the users that Angular does and falls out of the top 10 list for full stack developers.
 

@@ -2,7 +2,7 @@
 title: Building a Desktop UI in Go
 subtitle: Is it a good idea?
 date: 2017-09-21
-header: /img/go-desktop-ui-1.jpeg
+header: go-desktop-ui-1.jpeg
 tags: ["golang", "desktop", "ui"]
 ---
 
@@ -30,7 +30,7 @@ Dodgy websites aside, there is another problem with Qt. Once I got the already q
 
 
 >
-![Lotr](/img/go-desktop-ui-2.jpeg)
+![Lotr](go-desktop-ui-2.jpeg)
 Behind every QButton lies a hero
 
 
@@ -46,7 +46,7 @@ My current version of the software now uses a multi-line “Entrybox”, which I
 
 Anyway here is a great example of what the thing is supposed to look like and does on 2/3 operating systems.
 
-![Screenshot](/img/go-desktop-ui-3.png)
+![Screenshot](go-desktop-ui-3.png)
 
 Right now , I would not call it the most complete application. I still have yet to solve the problem of unloading the options from the dropdown key selector without completely destroying them and wrecking my layout. The library was a good way to get started, but it looks like it still has a lot of work before it competes with something like QT.
 

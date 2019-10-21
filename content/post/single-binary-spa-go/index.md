@@ -3,7 +3,7 @@ title: A single binary SPA using Go
 subtitle: Using statik and echo with to serve up a single binary React app
 date: 2019-02-24
 ---
-![Header Image](/img/go-spa-head.png)
+![Header Image](go-spa-head.png)
 
 I think one of the most elegant things that Go does is output a single portable binary. So when building a full web application, it would be nice to keep the output just as simple.
 
@@ -121,7 +121,7 @@ go run main.go
 ```
 We should get the following result on http://localhost:8080 :
 
-![Go SPA Output](/img/go-spa-out.png)
+![Go SPA Output](go-spa-out.png)
 
 ## Outputting the binary
 
@@ -145,7 +145,7 @@ clean:
 ```
 
 Now simply running `make` will give us the binary: `app`.
-![Go-spa-Echo](/img/go-spa-echo.png)
+![Go-spa-Echo](go-spa-echo.png)
 
 ## Conclusion
 
@@ -153,6 +153,6 @@ But Divan? This only allows me to run my React app on the OS I built it on, what
 Fear not, this thing is written in Go, of course there is a tool for that. Enter [Gox](https://github.com/mitchellh/gox)!
 Okay, that was a bit of a joke… sort of. I never really got plan 9 builds working, but I did get it to build for all of these architectures, and Gox does support plan 9:
 
-![Go SPA Targets](/img/go-spa-targets.png)
+![Go SPA Targets](go-spa-targets.png)
 
 I do however think that tools like Gox and [Goreleaser](https://github.com/goreleaser/goreleaser) demonstrate just why packaging an app like this is such a powerful concept. It opens up a lot of different strategies to deploy apps in the strangest ways on the strangest devices in a very simple format.

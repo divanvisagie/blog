@@ -2,7 +2,7 @@
 title: Swarm testing with Locust.io for the first time
 subtitle: A beginners guide
 date: 2018-10-01
-header: /img/locust-head.png
+header: locust-head.png
 tags: ["testing", "architecture"]
 ---
 
@@ -76,15 +76,15 @@ Once I got that right (it took more attempts than I would like to admit), it was
 
 After that, browsing to http://localhost:8089 gave me the following interface where I could set up my simulation.
 
-![Locust Swarm Setup](/img/locust-swarm-setup.png)
+![Screensot of Locust startup page](locust-swarm-setup.png)
 
 Once you get up and going the interface is quite simple, providing details on average and median request speeds, exceptions, failures, charts, and the option to download the stats you have gathered in CSV form.
 
-![Locust Swarm Results](/img/locust-swarm-results.png)
+![Locust Swarm Results](locust-swarm-results.png)
 
-![Locust Swarm Graph](/img/locust-swarm-graph.png)
+![Locust Swarm Graph](locust-swarm-graph.png)
 
-![Locust Swarm Calls](/img/locust-swarm-calls.png)
+![Locust Swarm Calls](locust-swarm-calls.png)
 
 For me personally, this is enough, in practise If I needed more data, I would want to be gathering it from the instrumentation in the actual service I am testing.
 
