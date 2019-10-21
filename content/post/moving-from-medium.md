@@ -6,6 +6,9 @@ header: /img/moving-from-medium.jpeg
 tags: ["opinion", "thoughts"]
 ---
 
+> **Update:**
+> While this site is still clearly no longer medium based, I have moved on from Hugo and have instead gone for my own implementation of a Markdown -> HTML converter
+
 For a few years now my blog has primarily been on the [Medium](medium.com) platform, and for good reason. The platform provided a clean interface with a nice easy to use editor and supports cool things like notes, highlights and allowing editors to give their two cents on an unpublished article. The main draw however is that it's a popular platform and the theory is that it would draw more views by simply being on medium or having better SEO or whatever. I have very little knowledge of SEO in fact, that's kind of the point. I wouldn't need to, it would all be handled for me. Right?
 
 Now if you hang around [Hackernews](news.ycombinator.com) you may have seen quite a few angry people moving off the platform due to the interface starting to become, eh... not so clean and paywalls popping up. Now I don't have anything in particular against a business tying to have an actual business model, but I was dissapointed at the banner that now took up valuable vertical screen real-estate for users who are not logged in and other things becoming cluttered. That in itself isn't really good enough reason to leave though, there is also the ease of use, the fact that I don't have to maintain my own site, and the all that traffic related stuff... or is it?
@@ -40,8 +43,6 @@ And that brings me to this very site you are reading this on, it's an experiment
 
 This my own static content hosted by GitLab and using [Hugo](https://gohugo.io/). For me the tool is simple to use and it was very easy to set up comments and analytics and best of all, my posts are in markdown. I personally feel like I have better control of my workflow now, but time will tell if this works out, I still think it's worth jumping in and seeing if it all works out.
 
-> P.S.
-> If you would like me to write a blog about my experience setting the whole thing up then please don't hesitate to test out the comment section... it is rendering right?
 
 
 
