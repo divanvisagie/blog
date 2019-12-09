@@ -130,7 +130,7 @@ async function main() {
         });
 
         let postTemplateOutput = postTemplate.replace("{{CONTENT}}", post);
-        let cardImage = "http://dvisagie.com/favicon.ico"
+        let cardImage = "favicon.ico"
         if (x.meta.header) {
             postTemplateOutput = getPostWithHeaderImage({
                 html: postTemplateOutput,
@@ -166,6 +166,7 @@ async function main() {
     indexHtml = layoutTemplate.replace('{{CONTENT}}', indexHtml);
     indexHtml = indexHtml.replaceAll("{{TITLE}}", 'Divan Visagie - Blog');
     indexHtml = indexHtml.replaceAll("{{DESCRIPTION}}", "Divan's Personal Blog");
+    indexHtml = indexHtml.replaceAll("{{CARD_IMAGE}}", "http://dvisagie.com/favicon.ico");
 
 
     const lis = posts.map(post =>
