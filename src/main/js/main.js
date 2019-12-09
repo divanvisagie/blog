@@ -130,17 +130,20 @@ async function main() {
         });
 
         let postTemplateOutput = postTemplate.replace("{{CONTENT}}", post);
-
+        let cardImage = "http://dvisagie.com/favicon.ico"
         if (x.meta.header) {
             postTemplateOutput = getPostWithHeaderImage({
                 html: postTemplateOutput,
                 headerImageSrc: x.meta.header
-            })
+            });
+            cardImage = x.meta.header
         }
 
         x.html = layoutTemplate.replace('{{CONTENT}}', postTemplateOutput)
         x.html = x.html.replaceAll('{{TITLE}}', x.meta.title);
         x.html = x.html.replaceAll('{{DESCRIPTION}}', x.meta.subtitle);
+        x.html = x.html.replaceAll('{{CARD_IMAGE}}', `http://dvisagie.com/${cardImage}`);
+        
         return x;
     });
 
@@ -163,6 +166,7 @@ async function main() {
     indexHtml = layoutTemplate.replace('{{CONTENT}}', indexHtml);
     indexHtml = indexHtml.replaceAll("{{TITLE}}", 'Divan Visagie - Blog');
     indexHtml = indexHtml.replaceAll("{{DESCRIPTION}}", "Divan's Personal Blog");
+
 
     const lis = posts.map(post =>
         `<li>
