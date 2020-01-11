@@ -1,11 +1,11 @@
 ---
-title: Feature Flags and Progressive Delivery
+title: Gettings started with Feature Flags and Progressive Delivery
 subtitle: An introduction using Unleash
 date: 2020-01-10
 header: feature-flag-header.jpeg
 ---
 
-In it's simplest form. A feature flag is an if statement. Lets take the example of an endpoint that returns the string `"Hello World"` when the user browses to [`/greeting`](http://locahost:5000/greeting):
+In it's simplest form. A feature flag is an if statement. Lets take the example of an endpoint that returns the string `"Hello World"` when the user browses to [`/greeting`](http://locahost:8000/greeting):
 
 ```ts
 app.get('/greeting', (req, res) => {
@@ -46,22 +46,25 @@ Ideally we would want to have a centralised  management system for these flags s
 
 One particular example is from a comp... well former company called Knight Capital, who's [reuse of a feature flag](https://dougseven.com/2014/04/17/knightmare-a-devops-cautionary-tale) caused an 8 year old bit of code to run unexpectedly; ultimately ending in the company's demise.
 
-If you need any more convincing about using a proper flag management system, check out: [Feature Toggles: The Good, The Bad, and The Ugly with Andy Davies](https://youtu.be/r7VI5x2XKXw)
+If you need any more convincing about using a proper flag management system, check out: [Feature Toggles: The Good, The Bad, and The Ugly with Andy Davies](https://youtu.be/r7VI5x2XKXw).
+
+> I highly recommend watching this talk as it points out the serious potential pitfalls that come with using feature flags
 
 ## Choosing a feature flag system
 
-## Progressive delivery
+There are several very viable options when it comes to feature flag management systems, but two of them really stand out to me:
 
-As you have seen so far, feature flags on their own can be valuable because they decouple rollout from deployment, we can easily switch between our old and new code simply by changing a value in our configuration.
+- LaunchDarkly
+- Unleash
 
+*LaunchDarkly* is a very full featured [SAAS](https://en.wikipedia.org/wiki/Software_as_a_service) solution, and also caters for A/B testing and experimentation. One of my favourite features which I discovered while using it was that it will actually mark a flag as no longer used, which serves as a great notification that it's time to clean up that check in your code. LaunchDarkly is however a paid for product and may be overkill for a lot of projects that have much more basic needs.
 
+*Unleash* is a much more lightweight, open source self-hosted solution that also has a (less prohibitively expensive for a normal human being) SAAS component called [Unleash Hosted](https://www.unleash-hosted.com). To me it's biggest benifit is the fact that I can package an instance for development by simply adding it to a `docker-compose.yml` file in the respective project, and it's for this reason I chose I will be using it in the code examples in the rest of this post.
 
-[Progressive Delivery](https://searchitoperations.techtarget.com/definition/progressive-delivery)
+## Using Unleash
 
-
-
-## Hosting Unleash
-You can choose to either use Unleash as a cloud service or run your own instance. This tutorial will focus specifically on the self hosted option. Which can be acheived very easily using `docker-compose`. Simply add the following to your docker-compose.yml
+You can choose to either use Unleash as a cloud service or run your own instance. 
+To run unleash in your project. Simply add the following to your docker-compose.yml
 
 ```yml
 version: '3'
@@ -79,4 +82,33 @@ services:
       - "5432"
     image: postgres:10-alpine
 ```
+
+After running the command `docker-compose up` you will now have access to an Unleash interface at [http://localhost:4242/](http://localhost:4242/).
+
+Let's take our earlier greeting example and convert it to use unleash
+
+![Add Flag Button](addflag.png)
+
+![Create greet by name feature screen](create-greet-by-name-feature.png)
+
+
+```ts
+app.get('/greeting', (req, res) => {
+    if (config.getBool('greet-by-name-feature')) {
+        let user = getUserDetails(req)
+        return res.send(`Hello ${user.name}`)
+    }
+    res.send('Hello World')
+})
+```
+
+
+## Progressive delivery
+
+As you have seen so far, feature flags on their own can be valuable because they decouple rollout from deployment, we can easily switch between our old and new code simply by changing a value in our configuration.
+
+
+[Progressive Delivery](https://searchitoperations.techtarget.com/definition/progressive-delivery)
+
+
 
