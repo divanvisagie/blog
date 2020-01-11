@@ -14,5 +14,5 @@ git submodule update --init --recursive
 To build, run:
 
 ```bash
-node src/main/js/main.js
+yarn build
 ```

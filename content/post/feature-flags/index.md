@@ -109,6 +109,8 @@ const instance = initialize({
 })
 ```
 
+We then can simply replace our config check with the `isEnabled` function made available by the client library 
+
 ```ts
 app.get('/greeting', (req, res) => {
     if (isEnabled('greet-by-name-feature')) {
@@ -119,7 +121,18 @@ app.get('/greeting', (req, res) => {
 })
 ```
 
+Now toggling between our old and new code is as simple as the flick of a switch. Here I ran this infinite loop in the shell to call the endpoint and then flicked the switch to change the value.
 
+```sh
+while true; do curl http://localhost:8000/greeting; echo ''; sleep 2; done
+```
+And got the following results.
+![In Action](toggle1.gif)
+
+As you can see the change isn't quite immediate, this is due to the fact that the unleash client is periodically updating the value so that not every call to your api will double the amount of traffic on your network. I have however seen it happen a lot faster than in this gif when I experimented with unleash in C#, as can be seen in this tweet:
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Playing with Unleash in dotnet, was a very simple setup. <a href="https://t.co/pZwJz9Lijz">pic.twitter.com/pZwJz9Lijz</a></p>&mdash; Divan Visagie (@DivanVisagie) <a href="https://twitter.com/DivanVisagie/status/1198301409298530306?ref_src=twsrc%5Etfw">November 23, 2019</a></blockquote> 
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
 ## Progressive delivery
