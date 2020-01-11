@@ -85,22 +85,41 @@ services:
 
 After running the command `docker-compose up` you will now have access to an Unleash interface at [http://localhost:4242/](http://localhost:4242/).
 
-Let's take our earlier greeting example and convert it to use unleash
+Let's take our earlier greeting example and convert it to use unleash. 
+
+> Please note that while the code portions are a Node.JS example written in TypeScript, unleash supports multiple languages, If you need exact code, refer to [Unleash's documentation](https://unleash.github.io/docs/client_sdk) for the respective library.
+
+Click the add button:
 
 ![Add Flag Button](addflag.png)
 
+We can then create the flag in unleash with the same name *'greet-by-name-feature'*, for now, use the default activation strategy and click update.
+
 ![Create greet by name feature screen](create-greet-by-name-feature.png)
 
+In the code we will now have to import and initialise the unleash client library, pointing it at the correct url for our running Unleash instance.
+
+```ts
+import {initialize, isEnabled} from 'unleash-client'
+
+const instance = initialize({
+    url: 'http://localhost:4242/api',
+    appName: 'node-unleash-example',
+    instanceId: 'my-server-instance',
+})
+```
 
 ```ts
 app.get('/greeting', (req, res) => {
-    if (config.getBool('greet-by-name-feature')) {
+    if (isEnabled('greet-by-name-feature')) {
         let user = getUserDetails(req)
         return res.send(`Hello ${user.name}`)
     }
     res.send('Hello World')
 })
 ```
+
+
 
 
 ## Progressive delivery
