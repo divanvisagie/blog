@@ -1,0 +1,3 @@
+https://searchitoperations.techtarget.com/definition/progressive-delivery
+https://dougseven.com/2014/04/17/knightmare-a-devops-cautionary-tale/
+Feature Toggles: The Good, The Bad, and The Ugly with Andy Davies - https://youtu.be/r7VI5x2XKXw

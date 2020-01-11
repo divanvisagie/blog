@@ -15,6 +15,7 @@ String.prototype.replaceAll = function (search, replacement) {
 // Actual default values
 const md = require('markdown-it')({
     linkify: true,
+    html: true,
     highlight: function (str, lang) {
         if (lang && hljs.getLanguage(lang)) {
             try {
