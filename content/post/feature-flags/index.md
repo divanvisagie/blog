@@ -1,6 +1,6 @@
 ---
 title: Gettings started with Feature Flags and Progressive Delivery
-subtitle: An introduction using Unleash
+subtitle: An introduction with examples using Unleash
 date: 2020-01-10
 header: feature-flag-header.jpeg
 ---
@@ -137,10 +137,52 @@ As you can see the change isn't quite immediate, this is due to the fact that th
 
 ## Progressive delivery
 
-As you have seen so far, feature flags on their own can be valuable because they decouple rollout from deployment, we can easily switch between our old and new code simply by changing a value in our configuration.
+As you have seen so far, feature flags on their own can be valuable because they decouple rollout from deployment, we can easily switch between our old and new code simply by changing a value in our configuration. However, there is still risk, switching on a feature switches it on for everybody and that means breaking changes will affect all the users of our application.
+
+What if instead we were to roll out changes to a small subset of users first? That way we could reduce the impact of a breaking change, or even target only live test users. This concept is called [Progressive Delivery](https://searchitoperations.techtarget.com/definition/progressive-delivery).
 
 
-[Progressive Delivery](https://searchitoperations.techtarget.com/definition/progressive-delivery)
+Unleash allows progressive delivery by letting you add a context to your `isEnabled` call and lets you use different activation strategies that will return a different value depending on the properties you provided in the context.
 
+As an example I am going to delete the default activation strategy for our greeting feature and replace it with a `userWithId` strategy and add the UserId 1 to the list of allowed Ids. This will mean that our new feature will only be turned on for a user with the ID of 1.
 
+![Activation strategy screenshot](activation-strat.png)
+
+Up until now I haven't really revealed the `getUserDetails()` function, since it was really just a stub that returned a fake name for example purposes, so far our API had no need for any real user code to get it's job done, now however we will use this function to also provide the unleash context. We will implement users simply by adding a 'UserId' header to our request, that way we can easily test if our rollout strategy works by passing in a header in our curl request eg: `curl localhost:8000/greeting -H "UserId: 2"`
+
+```ts
+function getUserDetails(req: Request) {
+    const userId  = req.header('UserId')
+    console.log(req.headers)
+
+    const unleashContext = {
+        userId
+    }
+
+    return {
+       name: 'FakeUser',
+       unleashContext
+    } 
+}
+```
+
+Next let's change our greeting endpoint, the getUserDetails call will have to move to the top of the handler function since we now need to get the context for the `isEnabled()` call, we then simply pass in the context as a second paramater to said function:
+```ts
+app.get('/greeting', (req, res) => {
+    const user = getUserDetails(req)
+    if (isEnabled('greet-by-name-feature', user.unleashContext)) {
+        return res.send(`Hello ${user.name}`)
+    }
+    res.send('Hello World')
+})
+```
+Now, calling the endpoint with a UserId of 1 should result in the new feature being displayed, while any other user will still be running the good old *Hello World* greeting.
+
+![Activation strategy result](activation-strat-example.png)
+
+And it was successful! We rolled out exclusively to user 1 without affecting anyone else, we are also able to see metrics on how many requests an hour are served our new feature vs the old feature, this can come in handy when it's time to decide to remove the flags from your code.
+
+When you do this make sure to archive the flag in unleash, which will then never again let you create a flag with the same name, preventing any potential checking code you left behind from being unintentionally reactivated.
+
+Unleash has many other activation strategies when it comes to Progressive Delivery and should serve most use cases, we have only really scratched the surface here. However if you have more complex needs It might be a sign that you are looking for something with a more advanced feature set like LaunchDarkly, which allows very find grained control over users and user segments.
 
