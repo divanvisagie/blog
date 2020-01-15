@@ -145,7 +145,7 @@ I set this all up in the default viewController , here is the code:
 
 ### ViewController.h
 
-```objective-c
+```objectivec
 //
 //  ViewController.h
 //  SocketTest
@@ -164,7 +164,7 @@ I set this all up in the default viewController , here is the code:
 ```
 
 ### ViewController.m
-```objective-c
+```objectivec
 //
 //  ViewController.m
 //  SocketTest
@@ -182,7 +182,7 @@ I set this all up in the default viewController , here is the code:
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-// Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view, typically from a nib.
     
     //create a web socket connection
     socket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@",_urlField.text]]]];
@@ -206,13 +206,11 @@ I set this all up in the default viewController , here is the code:
     [socket open];
 }
 - (IBAction)textChanged:(id)sender {
-    
-   
+      
     NSLog(@"%@",((UITextView*)sender).text);
     
     NSString *stringtoUse = ((UITextView*)sender).text;
-    
-    
+     
     if(![lastMessage isEqualToString:stringtoUse]){
         
         stringtoUse = [stringtoUse stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
@@ -233,8 +231,7 @@ I set this all up in the default viewController , here is the code:
     NSData *data = [msgString dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *toUse = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
     
-    if (![toUse[@"message"] isEqualToString:lastMessage] && ![toUse[@"message"] isEqualToString:_textField.text]) {
-        
+    if (![toUse[@"message"] isEqualToString:lastMessage] && ![toUse[@"message"] isEqualToString:_textField.text]) {        
         _textField.text = toUse[@"message"];
         lastMessage = toUse[@"message"];
     }
