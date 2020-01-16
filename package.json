@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node server.js",
-    "build": "node src/main/js/main.js"
+    "build": "node src/main/js/main.js",
+    "sub": "git submodule update --init --recursive"
   },
   "dependencies": {
     "copy-dir": "^1.2.0",
