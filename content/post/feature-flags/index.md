@@ -146,7 +146,7 @@ Unleash allows progressive delivery by letting you add a context to your `isEnab
 
 As an example I am going to delete the default activation strategy for our greeting feature and replace it with a `userWithId` strategy and add the UserId 1 to the list of allowed Ids. This will mean that our new feature will only be turned on for a user with the ID of 1.
 
-![Activation strategy screenshot](activation-strat.png)
+![Activation strategy screenshot](activation-strat.jpg)
 
 Up until now I haven't really revealed the `getUserDetails()` function, since it was really just a stub that returned a fake name for example purposes, so far our API had no need for any real user code to get it's job done, now however we will use this function to also provide the unleash context. We will implement users simply by adding a 'UserId' header to our request, that way we can easily test if our rollout strategy works by passing in a header in our curl request eg: `curl localhost:8000/greeting -H "UserId: 2"`
 
@@ -178,7 +178,7 @@ app.get('/greeting', (req, res) => {
 ```
 Now, calling the endpoint with a UserId of 1 should result in the new feature being displayed, while any other user will still be running the good old *Hello World* greeting.
 
-![Activation strategy result](activation-strat-example.png)
+![Activation strategy result](activation-strat-example.jpg)
 
 And it was successful! We rolled out exclusively to user 1 without affecting anyone else, we are also able to see metrics on how many requests an hour are served our new feature vs the old feature, this can come in handy when it's time to decide to remove the flags from your code.
 
