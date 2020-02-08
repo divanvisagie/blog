@@ -16,3 +16,5 @@ To build, run:
 ```bash
 yarn build
 ```
+
+-  install optimize-images from pip for image compression
