@@ -186,6 +186,17 @@ async function main() {
         }
     });
 
+    let aboutHtml = fs.readFileSync(path.join(ROOT, 'about.html')).toString();
+    let aboutMarkdown = fs.readFileSync(path.join(ROOT, 'content','about','index.md')).toString()
+    let mdhtml = getHtmlForMarkdown(aboutMarkdown);
+    aboutHtml = aboutHtml.replace('{{CONTENT}}',mdhtml);
+    aboutHtml = layoutTemplate.replace('{{CONTENT}}',aboutHtml);
+    fs.writeFile(path.join(ROOT, 'public', 'about', 'index.html'), aboutHtml, (err) => {
+        if (err) {
+            console.log('there was an error writing the index file');
+        }
+    });
+
 
     //copy images across
     copydir(POSTS_DIR, path.join(ROOT,'public', 'post'), {
