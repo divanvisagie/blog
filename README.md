@@ -17,4 +17,8 @@ To build, run:
 yarn build
 ```
 
--  install optimize-images from pip for image compression
+install optimize-images from pip for image compression
+
+```
+optimize-images content/post -cb -fd
+```
