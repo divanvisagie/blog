@@ -1,2 +1,6 @@
 CONTENT = '{{CONTENT}}'
+TITLE = '{{TITLE}}'
+DESCRIPTION = '{{DESCRIPTION}}'
+CARD_IMAGE = '{{CARD_IMAGE}}'
+
 ROOT = '../../..'

@@ -1,7 +1,7 @@
 from os import listdir, makedirs, path
 import re
 from markdown_processor import markdown_to_html
-from replacement_tags import CONTENT, ROOT
+from replacement_tags import CONTENT, ROOT, TITLE, DESCRIPTION, CARD_IMAGE
 from shutil import copyfile
 
 class Post:
@@ -52,7 +52,6 @@ def get_markdown_metastring(markdown, key):
     except:
         return None
 
-
 def get_metadata_for_post(post):
     """
     Get metadata for a post object and populate it
@@ -81,6 +80,15 @@ def insert_in_template(post):
 
     # Put into layout
     post.html = layout_template.replace(CONTENT, post.html)
+    
+    # Update meta tags
+    post.html = post.html.replace(TITLE, post.title)
+    post.html = post.html.replace(DESCRIPTION, post.subtitle)
+    header = post.header
+    if header == None:
+        header = 'favicon.ico'
+    post.html = post.html.replace(CARD_IMAGE, header)
+    
     return post
 
 def copy_images_for_post(post):
