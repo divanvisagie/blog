@@ -21,8 +21,8 @@ class Post:
     def __repr__(self):
         return self.print_rep()
 
-post_template = open('../../../post.html','r').read()
-layout_template = open('../../../layout.html','r').read()
+post_template = open('../../../post.html','r', encoding='utf8').read()
+layout_template = open('../../../layout.html','r', encoding='utf8').read()
 
 def get_posts():
     """
@@ -73,7 +73,7 @@ def process_posts():
     for post in posts:
         post = get_metadata_for_post(post)
         post = insert_in_template(post)
-        wf = open(f'../../../public/post/{post.name}/index.html','w')
+        wf = open(f'../../../public/post/{post.name}/index.html','w', encoding='utf8')
         wf.write(post.html)
     return posts
   
