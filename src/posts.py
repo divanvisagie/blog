@@ -1,7 +1,7 @@
 from os import listdir, makedirs, path
 import re
 from src.markdown_processor import markdown_to_html
-from src.replacement_tags import CONTENT, ROOT, TITLE, DESCRIPTION, CARD_IMAGE
+from src.replacement_tags import CONTENT, ROOT, TITLE, DESCRIPTION, CARD_IMAGE, TEMPLATE_ROOT
 from shutil import copyfile
 
 class Post:
@@ -30,8 +30,8 @@ class Post:
         """
         self.html = ''
 
-post_template = open(f'{ROOT}/post.html','r', encoding='utf8').read()
-layout_template = open(f'{ROOT}/layout.html','r', encoding='utf8').read()
+post_template = open(f'{TEMPLATE_ROOT}/post.html','r', encoding='utf8').read()
+layout_template = open(f'{TEMPLATE_ROOT}/layout.html','r', encoding='utf8').read()
 
 def get_posts():
     """

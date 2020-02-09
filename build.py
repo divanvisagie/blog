@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!./env/bin/python
 from src.builder import build
 
 def main():

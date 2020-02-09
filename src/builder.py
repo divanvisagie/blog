@@ -1,11 +1,12 @@
 from markdown import markdown
 
+import os
 from src.posts import process_posts
-from src.replacement_tags import CONTENT, ROOT, TITLE, DESCRIPTION, CARD_IMAGE
+from src.replacement_tags import CONTENT, ROOT, TITLE, DESCRIPTION, CARD_IMAGE, TEMPLATE_ROOT
 from src.markdown_processor import markdown_to_html
 
 def get_layout():
-    layout_html = open(f'{ROOT}/layout.html','r')
+    layout_html = open(f'{TEMPLATE_ROOT}/layout.html','r')
     return layout_html.read()
 
 def get_li_for_post(post):
@@ -15,7 +16,7 @@ def process_index(posts):
     """
     Creates the index page with the list of posts
     """
-    index_html = open(f'{ROOT}/index.html','r').read()
+    index_html = open(f'{TEMPLATE_ROOT}/index.html','r').read()
 
     # Sort by date order
     posts = sorted(posts, key=lambda k: int(k.date.replace('-','')), reverse = True)
@@ -41,7 +42,7 @@ def process_simple(content_folder, template_name):
     """
     Process a markdown folder into a site page
     """
-    template_html = open(f'{ROOT}/{template_name}.html', 'r').read()
+    template_html = open(f'{TEMPLATE_ROOT}/{template_name}.html', 'r').read()
     content_md = open(f'{ROOT}/content/{content_folder}/index.md', 'r').read()
     layout_html = get_layout()
     
@@ -56,7 +57,10 @@ def process_simple(content_folder, template_name):
     html_out = html_out.replace(DESCRIPTION, 'Divan\'s personal blog')
     html_out = html_out.replace(CARD_IMAGE, 'favicon.ico')
     
-    f_out = open(f'{ROOT}/public/{content_folder}/index.html', 'w')
+    p = f'{ROOT}/public/{content_folder}'
+    if not os.path.exists(p):
+            os.makedirs(p)
+    f_out = open(f'{p}/index.html', 'w')
     f_out.write(html_out)
 
 def build():
@@ -66,4 +70,4 @@ def build():
     process_index(posts)
 
 if __name__ == '__main__':
-    println('Please run from root')
+    print('Please run from root')

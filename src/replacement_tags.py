@@ -4,3 +4,4 @@ DESCRIPTION = '{{DESCRIPTION}}'
 CARD_IMAGE = '{{CARD_IMAGE}}'
 
 ROOT = '.'
+TEMPLATE_ROOT = './templates'
