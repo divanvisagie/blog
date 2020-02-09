@@ -1,1 +1,2 @@
 CONTENT = '{{CONTENT}}'
+ROOT = '../../..'
