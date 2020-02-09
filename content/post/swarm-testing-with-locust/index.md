@@ -14,7 +14,7 @@ It’s not surprising then that when shopping around for a simple, easy to use c
 
 The plan was to simply create a test app and then point Locust at it, nothing fancy, just all on my local machine. I like doing this when I try out a tool because it let’s me back out before too much investment yet gives me a sense of how it works and potential pain points.
 
-# The Server
+## The Server
 
 I decided that since I would be writing the tests in Python I would whip up a the test service in the same language. A microframework seemed like the perfect tool for that so it was [Flask](http://flask.pocoo.org/) to the rescue.
 
@@ -42,7 +42,7 @@ def hello():
 
 I ran a single instance to test against simply using the dev server: `FLASK_APP=server.py flask run`
 
-# The Test
+## The Test
 The next thing to do was to create a [locustfile](https://docs.locust.io/en/latest/writing-a-locustfile.html) to define the user behaviour that we would be testing. The [quick start guide](https://docs.locust.io/en/latest/quickstart.html) was a good place to start, but I make some modifications to store my super secure token.
 
 ```py

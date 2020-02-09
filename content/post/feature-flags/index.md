@@ -4,7 +4,6 @@ subtitle: An introduction with examples using Unleash
 date: 2020-01-10
 header: feature-flag-header.jpeg
 ---
-
 In it's simplest form. A feature flag is an if statement. Lets take the example of an endpoint that returns the string `"Hello World"` when the user browses to [`/greeting`](http://locahost:8000/greeting):
 
 ```ts
@@ -135,7 +134,7 @@ As you can see the change isn't quite immediate, this is due to the fact that th
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
-## Progressive delivery
+# Progressive delivery
 
 As you have seen so far, feature flags on their own can be valuable because they decouple rollout from deployment, we can easily switch between our old and new code simply by changing a value in our configuration. However, there is still risk, switching on a feature switches it on for everybody and that means breaking changes will affect all the users of our application.
 

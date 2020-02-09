@@ -19,7 +19,7 @@ Even if the reason people were leaving Medium fairly loudly was different to my 
 ## Workflow
 The workflow is a bit tedious, given the content I produce. I have a lot of code snippets and on Medium that means either using a screenshot image, having no syntax highlighting or using [GitHub](https://github.com) gists. I usually settle for gists since it renders the best, but that's a lot of work managing multiple gists per article, it would be great to just have markdown and paste the code right there and have it neatly highlighted.
 
-```golang
+```go
 fmt.Print("Where is my MARKDOWN??")
 ```
 Markdown would certainly help when it came to actually typing out the content, and this would also mean all the content would live in the same place and have version control, something that could prove useful for technical articles that may require a content update once in a while. Markdown can also form as a raw "Source" if you will, not being locked to a platform yet being simple and editable.
