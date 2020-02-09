@@ -1,8 +1,8 @@
 from markdown import markdown
 
-from posts import process_posts
-from replacement_tags import CONTENT, ROOT, TITLE, DESCRIPTION, CARD_IMAGE
-from markdown_processor import markdown_to_html
+from src.posts import process_posts
+from src.replacement_tags import CONTENT, ROOT, TITLE, DESCRIPTION, CARD_IMAGE
+from src.markdown_processor import markdown_to_html
 
 def get_layout():
     layout_html = open(f'{ROOT}/layout.html','r')
@@ -59,11 +59,11 @@ def process_simple(content_folder, template_name):
     f_out = open(f'{ROOT}/public/{content_folder}/index.html', 'w')
     f_out.write(html_out)
 
-def main():
+def build():
     print('starting the process')
     process_simple('about', 'about')
     posts = process_posts()
     process_index(posts)
 
 if __name__ == '__main__':
-    main()
+    println('Please run from root')

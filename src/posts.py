@@ -1,7 +1,7 @@
 from os import listdir, makedirs, path
 import re
-from markdown_processor import markdown_to_html
-from replacement_tags import CONTENT, ROOT, TITLE, DESCRIPTION, CARD_IMAGE
+from src.markdown_processor import markdown_to_html
+from src.replacement_tags import CONTENT, ROOT, TITLE, DESCRIPTION, CARD_IMAGE
 from shutil import copyfile
 
 class Post:
@@ -38,9 +38,11 @@ def get_posts():
     Get a list of simple objects that represent posts that are only populated by name
     """
     posts = []
-    dirs = listdir(f'{ROOT}/content/post')
+    root_path = f'{ROOT}/content/post'
+    dirs = listdir(root_path)
     for dir_name in dirs:
-        posts.append(Post(dir_name))
+        if not path.isfile(f'{root_path}/{dir_name}'):
+            posts.append(Post(dir_name))
     return posts  
 
 def get_markdown_metastring(markdown, key):

@@ -24,3 +24,12 @@ optimize-images content/post -cb -fd
 ```
 
 https://github.com/sbrisard/nord_pygments
+
+Python environment:
+```
+source env/bin/activate
+```
+
+```
+pip install -r requirements.txt
+```
