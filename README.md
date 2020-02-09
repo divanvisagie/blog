@@ -22,3 +22,5 @@ install optimize-images from pip for image compression
 ```
 optimize-images content/post -cb -fd
 ```
+
+https://github.com/sbrisard/nord_pygments

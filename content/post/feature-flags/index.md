@@ -66,7 +66,7 @@ There are several very viable options when it comes to feature flag management s
 You can choose to either use Unleash as a cloud service or run your own instance. 
 To run unleash in your project. Simply add the following to your docker-compose.yml
 
-```yml
+```yaml
 version: '3'
 services:
   unleash:
