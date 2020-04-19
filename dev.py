@@ -4,7 +4,10 @@ from livereload import Server
 
 # Fix breaking change in tornado https://github.com/tornadoweb/tornado/issues/2608
 import asyncio
-asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+try:
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+except:
+    print('We are probably on a mac, lets swallow it... I''m not evil, honest!')
 
 def main():
     # build()
