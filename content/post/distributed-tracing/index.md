@@ -4,7 +4,7 @@ subtitle: Debugging across services
 date: 2020-04-18
 ---
 
-When working with traditional monolithic applications, you can become used to very quickly debugging when something has gone wrong. The logs can reveal quite a lot on their own and the logs for each request may even [have a unique identifier](https://medium.com/@d.lopez.j/spring-boot-setting-a-unique-id-per-request-dd648efef2b) so that you can track down what went wrong with a particular request, and if that fails, if you can replicate your issues on your developer environment you can simply attach a debugger and watch for when the flow breaks.
+When working with traditional monolithic applications, you can very quickly become used to a certain style of debugging when something has gone wrong. Logs can reveal quite a lot on their own and the logs for each request may even [have a unique identifier](https://medium.com/@d.lopez.j/spring-boot-setting-a-unique-id-per-request-dd648efef2b) so that you can track down what went wrong with a particular request. If that fails, assuming you can replicate your issues on your developer environment, you can simply attach a debugger and watch for when the flow breaks.
 
 Microservices on the other hand make the problem of debugging much more complicated. When a single request from a user passes through mutliple applications, tracking down where exactly that request went wrong can become a nightmare, even with the same tooling that was such a breeze with our monolith.
 
