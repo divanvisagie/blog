@@ -8,15 +8,15 @@ When working with traditional monolithic applications, you can become used to ve
 
 Microservices on the other hand make the problem of debugging much more complicated. When a single request from a user passes through mutliple applications, tracking down where exactly that request went wrong can become a nightmare, even with the same tooling that was such a breeze with our monolith.
 
-### Monolithic Example
+## Monolithic Example
 Let's take the example of a user registration flow for a monolithic application. When the client registers, an email should be sent to them to verify their email address.
 
-[![](https://mermaid.ink/img/eyJjb2RlIjoiXG5zZXF1ZW5jZURpYWdyYW1cbiAgICBDbGllbnQtPj4rRW5kcG9pbnQ6IFJlZ2lzdHJhdGlvbiBSZXF1ZXN0XG4gICAgRW5kcG9pbnQtPj4rVXNlciBTZXJ2aWNlOiBSZWdpc3RyYXRpb24gUmVxdWVzdFxuICAgIFVzZXIgU2VydmljZS0-PisgTWFpbCBTZXJ2aWNlOiBSZWdpc3RyYXRpb24gY29uZmlybWF0aW9uIG1haWxcbiAgICBVc2VyIFNlcnZpY2UtPj4tIENsaWVudDogUmVzcG9uc2VcbiAgICBNYWlsIFNlcnZpY2UtPj4rVXNlciBJbmJveDogTWFpbCB3aXRoIGNvbmZpcm1hdGlvbiBsaW5rXG4gICAgVXNlciBJbmJveC0tPj4tVXNlciBTZXJ2aWNlOiBWZXJpZnkgZW1haWwgYWRkcmVzcyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiXG5zZXF1ZW5jZURpYWdyYW1cbiAgICBDbGllbnQtPj4rRW5kcG9pbnQ6IFJlZ2lzdHJhdGlvbiBSZXF1ZXN0XG4gICAgRW5kcG9pbnQtPj4rVXNlciBTZXJ2aWNlOiBSZWdpc3RyYXRpb24gUmVxdWVzdFxuICAgIFVzZXIgU2VydmljZS0-PisgTWFpbCBTZXJ2aWNlOiBSZWdpc3RyYXRpb24gY29uZmlybWF0aW9uIG1haWxcbiAgICBVc2VyIFNlcnZpY2UtPj4tIENsaWVudDogUmVzcG9uc2VcbiAgICBNYWlsIFNlcnZpY2UtPj4rVXNlciBJbmJveDogTWFpbCB3aXRoIGNvbmZpcm1hdGlvbiBsaW5rXG4gICAgVXNlciBJbmJveC0tPj4tVXNlciBTZXJ2aWNlOiBWZXJpZnkgZW1haWwgYWRkcmVzcyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
+![Monolithic sequence diagram](mono-sequence.svg)
+
 
 Internally this application consists of three parts, each layer calling the next:
 
-[![](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFJcbiAgICBHKEVuZHBvaW50KSAtLT4gVShVc2VyIFNlcnZpY2UpXG4gICAgVSAtLT4gTShNYWlsIFNlcnZpY2UpIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFJcbiAgICBHKEVuZHBvaW50KSAtLT4gVShVc2VyIFNlcnZpY2UpXG4gICAgVSAtLT4gTShNYWlsIFNlcnZpY2UpIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
-
+![Monolithic UML Diagram](mono-uml.svg)
 
 
 These internals are very simple, but critically, each layer is still running in the same process, this makes debugging easy because we only have a single place where we need to check the logs.
@@ -75,21 +75,21 @@ public class MailService {
 
 Well well, mystery solved. We can now remove the evil programmers naughty code and push the fix to production, but what would have happened if our application was split up into microservices?
 
-### Microservices Example
+## Microservices Example
 
 You will notice that our flow is exactly the same, with the exception that our components are now distributed across the network.
 
-[![](https://mermaid.ink/img/eyJjb2RlIjoiXG5zZXF1ZW5jZURpYWdyYW1cbiAgICBDbGllbnQtPj4rQVBJIEdhdGV3YXk6IFJlZ2lzdHJhdGlvbiBSZXF1ZXN0XG4gICAgQVBJIEdhdGV3YXktPj4rVXNlciBTZXJ2aWNlIEFQSTogUmVnaXN0cmF0aW9uIFJlcXVlc3RcbiAgICBVc2VyIFNlcnZpY2UgQVBJLT4-KyBNYWlsIFNlcnZpY2UgQVBJOiBSZWdpc3RyYXRpb24gY29uZmlybWF0aW9uIG1haWxcbiAgICBVc2VyIFNlcnZpY2UgQVBJLT4-LSBDbGllbnQ6IFJlc3BvbnNlXG4gICAgTWFpbCBTZXJ2aWNlIEFQSS0-PitVc2VyIEluYm94OiBNYWlsIHdpdGggY29uZmlybWF0aW9uIGxpbmtcbiAgICBVc2VyIEluYm94LS0-Pi1Vc2VyIFNlcnZpY2UgQVBJOiBWZXJpZnkgZW1haWwgYWRkcmVzcyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiXG5zZXF1ZW5jZURpYWdyYW1cbiAgICBDbGllbnQtPj4rQVBJIEdhdGV3YXk6IFJlZ2lzdHJhdGlvbiBSZXF1ZXN0XG4gICAgQVBJIEdhdGV3YXktPj4rVXNlciBTZXJ2aWNlIEFQSTogUmVnaXN0cmF0aW9uIFJlcXVlc3RcbiAgICBVc2VyIFNlcnZpY2UgQVBJLT4-KyBNYWlsIFNlcnZpY2UgQVBJOiBSZWdpc3RyYXRpb24gY29uZmlybWF0aW9uIG1haWxcbiAgICBVc2VyIFNlcnZpY2UgQVBJLT4-LSBDbGllbnQ6IFJlc3BvbnNlXG4gICAgTWFpbCBTZXJ2aWNlIEFQSS0-PitVc2VyIEluYm94OiBNYWlsIHdpdGggY29uZmlybWF0aW9uIGxpbmtcbiAgICBVc2VyIEluYm94LS0-Pi1Vc2VyIFNlcnZpY2UgQVBJOiBWZXJpZnkgZW1haWwgYWRkcmVzcyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
+![Microservices sequence diagram](microservice-sequence.svg)
 
+The following diagram now represents our network rather than the internals of our application, with each line representing a network call.
 
-The following diagram now represents our network rather than the internals of our application, with each line representing a network call. 
 ![Service connectivity diagram](uml.svg)
 
 Given that everything has stayed the same and our Services have merely had the word 'API' appended to them, we would expect that debugging our registration problem would be the same as before right?
 
 Well not quite. You see, we now have to check the logs of all three applications starting with our *Gateway* and working up to the *Mail Service*. Even then we may not find the answer, the thing about microservices is that the network now becomes an integral part of your application. A failed registration at it's extreme could even mean that someone at the datacenter tripped over the lan cable that links the *Gateway* to our *User Service*, or the *User Service* to the *Mail Service*. Furthermore this is a trivial example, some systems can have a rediculous amount of microservices which makes checking the logs of every one an impossible task, our previous solution simply doesn't scale.
 
-### Distributed Tracing
+## Distributed Tracing
 
 This problem was exactly the one that Google was trying to solve when they came up with the concept in their [Dapper Paper](https://research.google/pubs/pub36356/) which later became known as Distributed Tracing.
 
@@ -143,7 +143,7 @@ public class MailController {
 
 And what do you know? The evil programmer strikes again, even in a more complex microservice driven system we were able to track them down easily, and it was much easier using Zipkin than sifting through the logs of every single service in our system.
 
-### Dependency Mapping
+## Dependency Mapping
 
 Zipkin's UI also renders logs in other interesting ways.
 
