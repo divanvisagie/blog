@@ -78,7 +78,7 @@ def insert_in_template(post):
 
     # Insert header at the beginning of the template   
     if post.header != None:
-        post.html = f'<img class="post-header" src="{post.header}"></img>\n{post.html}'
+        post.html = f'<img class="post-header" alt="An image displayed as a header before the article for decorative purposes." src="{post.header}"></img>\n{post.html}'
 
     # Put into layout
     post.html = layout_template.replace(CONTENT, post.html)

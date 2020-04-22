@@ -3,9 +3,11 @@
 
 Well the short answer is: It's my blog. But who am I?
 
-I'm Divan, a Durban based Software Consultant with 7 years of programming experience, 6 years of which are in consulting. 
+I'm Divan, a Durban based Software Consultant with 8 years of programming experience, 6 years of which are in consulting. 
 
 Over those years I have had the opportunity to work on systems that range from mobile to web to large multinational scalable microservices.
 
 I have a passion for assisting businesses with their technology solutions in order to deliver maximum value and reduce costs.
+
+The goal of this website is for me to share knowledge with the community, covering topics from simple to advanced in a way that is more descriptive than prescriptive. I am not here to sell you on any particular technology but to provide solutions to common problems.
 
