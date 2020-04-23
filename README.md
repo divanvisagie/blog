@@ -36,3 +36,5 @@ optimize-images content/post/[the post in question] -cb -fd
 ```
 
 Syntax highlight Theme: https://github.com/sbrisard/nord_pygments
+
+Publish to medium using [mdium](https://github.com/icyphox/mdium)
