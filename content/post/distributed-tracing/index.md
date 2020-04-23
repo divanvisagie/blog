@@ -151,9 +151,9 @@ Since it has information on which services call which, it has enough information
 
 ![Network Map](netmap.png)
 
-Clicking on a node in this network map can even show you how many error vs normal requests you are recieving on a given service, which helps us debug unhealthy servers.
+Clicking on a node in this network map can even show you how many error vs normal requests you are receiving on a given service, which helps us debug unhealthy servers.
 
 ![Network map showing errors](netmap-errors.png)
 
 
-This only scratches the surface of what you can do with Distributed Request Tracing, but for me it's something that is a vital tool if you are dealing with a microservice architecture. Experience has shwon me time and time again that instrumenting your microservices well can catch bugs that can save you hours of confusion. Be sure to check out the [OpenTelemetry](https://opentelemetry.io/) website for more on tracing and telemetry.
+This only scratches the surface of what you can do with Distributed Request Tracing, but for me it's something that is a vital tool if you are dealing with a microservice architecture. Experience has shown me time and time again that instrumenting your microservices well can catch bugs that can save you hours of confusion. Be sure to check out the [OpenTelemetry](https://opentelemetry.io/) website for more on tracing and telemetry.
