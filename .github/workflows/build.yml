@@ -43,10 +43,12 @@ jobs:
         # Build directory to deploy
         build_dir: public
         # Commit author's name
-        committer_name: Divan Visagie
+        committer_name: ${{ github.actor }}
         # Commit author's email
         committer_email: me@dvisagie.com # optional
         # Commit message
         commit_message: "Build from ci" # optional
         # Write the given domain name to the CNAME file
         fqdn: dvisagie.com # optional
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
