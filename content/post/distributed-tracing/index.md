@@ -11,7 +11,7 @@ Microservices on the other hand make the problem of debugging much more complica
 ## Monolithic Example
 Let's take the example of a user registration flow for a monolithic application. When the client registers, an email should be sent to them to verify their email address.
 
-![Monolithic sequence diagram](mono-sequence.svg)
+![Sequence diagram depicting monolithic arcitecture showing a user that registers, after which they are sent an email](mono-sequence.svg)
 
 
 Internally this application consists of three parts, each layer calling the next:
