@@ -1,7 +1,7 @@
 # About me
 ## What is this website?
 
-Well the short answer is: It's my blog. But who am I?
+Well the short answer is: It's my blog, but who am I?
 
 I'm Divan, a Durban based Software Consultant with 8 years of programming experience, 6 years of which are in consulting. 
 
