@@ -37,18 +37,19 @@ jobs:
         # Git branch where assets will be deployed
         target_branch: master
         # Create incremental commit instead of doing push force
-        keep_history: true
+        keep_history: false
         # Allow an empty commit to be created
         allow_empty_commit: true # optional, default is true
         # Build directory to deploy
         build_dir: public
         # Commit author's name
-        committer_name: ${{ github.actor }}
+        committer_name: Divan Visagie
         # Commit author's email
         committer_email: me@dvisagie.com # optional
         # Commit message
-        commit_message: "Build from ci" # optional
+        commit_message: ${{ github.actor }} # optional
         # Write the given domain name to the CNAME file
         fqdn: dvisagie.com # optional
       env:
+        GITHUB_USERNAME: ${{ github.actor }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
