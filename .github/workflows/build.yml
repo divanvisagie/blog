@@ -28,3 +28,25 @@ jobs:
     - name: Test with pytest
       run: |
         python build.py
+        
+    - name: GitHub Pages
+      uses: crazy-max/ghaction-github-pages@v1.5.1
+      with:
+        # GitHub repository where assets will be deployed (default current)
+        repo: git@github.com:divanvisagie/divanvisagie.github.io.git
+        # Git branch where assets will be deployed
+        target_branch: master
+        # Create incremental commit instead of doing push force
+        keep_history: true
+        # Allow an empty commit to be created
+        allow_empty_commit: true # optional, default is true
+        # Build directory to deploy
+        build_dir: public
+        # Commit author's name
+        committer_name: Divan Visagie
+        # Commit author's email
+        committer_email: me@dvisagie.com # optional
+        # Commit message
+        commit_message: "Build from ci" # optional
+        # Write the given domain name to the CNAME file
+        fqdn: dvisagie.com # optional
