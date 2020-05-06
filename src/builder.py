@@ -2,7 +2,7 @@ from markdown import markdown
 
 import os
 from src.posts import process_posts
-from src.replacement_tags import CONTENT, ROOT, TITLE, DESCRIPTION, CARD_IMAGE, TEMPLATE_ROOT
+from src.replacement_tags import OUT_DIR, CONTENT, ROOT, TITLE, DESCRIPTION, CARD_IMAGE, TEMPLATE_ROOT
 from src.markdown_processor import markdown_to_html
 
 def get_layout():
@@ -35,7 +35,7 @@ def process_index(posts):
     html_out = html_out.replace(DESCRIPTION, 'Divan\'s personal blog')
     html_out = html_out.replace(CARD_IMAGE, 'favicon.ico')
 
-    f_out = open(f'{ROOT}/public/index.html', 'w')
+    f_out = open(f'{ROOT}/{OUT_DIR}/index.html', 'w')
     f_out.write(html_out)
 
 def process_simple(content_folder, template_name):
@@ -57,7 +57,7 @@ def process_simple(content_folder, template_name):
     html_out = html_out.replace(DESCRIPTION, 'Divan\'s personal blog')
     html_out = html_out.replace(CARD_IMAGE, 'favicon.ico')
     
-    p = f'{ROOT}/public/{content_folder}'
+    p = f'{ROOT}/{OUT_DIR}/{content_folder}'
     if not os.path.exists(p):
             os.makedirs(p)
     f_out = open(f'{p}/index.html', 'w')

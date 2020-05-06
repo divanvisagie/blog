@@ -5,3 +5,4 @@ CARD_IMAGE = '{{CARD_IMAGE}}'
 
 ROOT = '.'
 TEMPLATE_ROOT = './templates'
+OUT_DIR = 'build'

@@ -1,7 +1,7 @@
 from os import listdir, makedirs, path
 import re
 from src.markdown_processor import markdown_to_html
-from src.replacement_tags import CONTENT, ROOT, TITLE, DESCRIPTION, CARD_IMAGE, TEMPLATE_ROOT
+from src.replacement_tags import OUT_DIR, CONTENT, ROOT, TITLE, DESCRIPTION, CARD_IMAGE, TEMPLATE_ROOT
 from shutil import copyfile
 
 class Post:
@@ -98,11 +98,11 @@ def copy_images_for_post(post):
     for f in listdir(p):
         if not '.md' in f:
             source = f'{p}/{f}'
-            destination = f'{ROOT}/public/post/{post.name}/{f}'
+            destination = f'{ROOT}/{OUT_DIR}/post/{post.name}/{f}'
             copyfile(source, destination)
 
 def write_post(post):
-    p = f'{ROOT}/public/post/{post.name}'
+    p = f'{ROOT}/{OUT_DIR}/post/{post.name}'
     if not path.exists(p):
         makedirs(p)
     wf = open(f'{p}/index.html','w', encoding='utf8')
