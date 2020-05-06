@@ -33,7 +33,7 @@ jobs:
       uses: crazy-max/ghaction-github-pages@v1.5.1
       with:
         # GitHub repository where assets will be deployed (default current)
-        repo: git@github.com:divanvisagie/divanvisagie.github.io.git
+        repo: divanvisagie/divanvisagie.github.io
         # Git branch where assets will be deployed
         target_branch: master
         # Create incremental commit instead of doing push force
