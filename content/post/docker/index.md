@@ -68,7 +68,42 @@ docker run --name unleash-postgres -p 5432:5432 -e POSTGRES_PASSWORD=postgres -d
 And now we simply install unleash with the same command:
 
 ```bash
-docker run -e DATABASE_URL=postgres://user:postgres@localhost:5432/unleash -d unleashorg/unleash-server
+docker run -e DATABASE_URL=postgres://user:postgres@localhost:5432/unleash -p 4242:4242 -d unleashorg/unleash-server
 ```
 
-Unleash start up with node inside it's container and will have access to this PostgreSQL instance since the port has been made available.
+Unleash will start up with node inside its container and will have access to this PostgreSQL instance since the port has been made available.
+
+This shows you the power of docker, being able to set up applications quickly and easily and all with the same management interface.
+
+## Compose
+
+Running commands is great but I would like to introduce one last concept because to me, it was the feature that made docker useful to me as a developer, and that is compose. If applications are shipping containers then compose is the shipment. It allows you to define environments such as the one above and have you set them up, or tear them down at will.
+
+Compose lets us handle the environment above with a single command by defining it in a `docker-compose.yml` file
+
+```yaml
+version: '3'
+services:
+  unleash:
+    image: unleashorg/unleash-server:3.1
+    ports:
+      - "4242:4242"
+    environment:
+      DATABASE_URL: postgres://postgres:unleash@db/postgres
+    depends_on:
+      - db
+  db:
+    expose:
+      - "5432"
+    image: postgres:10-alpine
+```
+
+This will reduce the unleash environment in our previous example to running :
+
+```bash
+docker-compose up
+```
+
+In the directory that contains the definition file. Compose as a developer tool, especially when dealing with networked applications is envaluable and allows us to simulate having multiple machines without having to own our own data-center.
+
+
