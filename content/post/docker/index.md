@@ -106,6 +106,6 @@ docker-compose up
 
 In the directory that contains the definition file. Compose as a developer tool, especially when dealing with networked applications is envaluable and allows us to simulate having multiple machines without having to own our own data-center.
 
-It also is the tip of the iceberg in a concept called Container Orchestration, which allows us to spin up and tear down server applications at will in response to load. That is beyond the scope of this article, but is definately a contributing factor to Docker's popularity in production environments
+It also is the tip of the iceberg in a concept called Container Orchestration, which allows us to spin up and tear down server applications at will in response to load. That is beyond the scope of this article, but is definately a contributing factor to Docker's popularity in production environments.
 
 
