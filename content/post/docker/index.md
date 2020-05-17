@@ -5,7 +5,7 @@ date: 2020-05-17
 header: header.jpg
 ---
 
-There are 2 types of people, those who think [Docker](https://www.docker.com/) is an absolute game changer when it comes to web application development, and those who don't know what Docker is. If you belong to the latter group, my goal here is to make you part of the former.
+There are two types of people, those who think [Docker](https://www.docker.com/) is an absolute game changer when it comes to web application development, and those who don't know what Docker is. If you belong to the latter group, my goal here is to make you part of the former.
 
 Most modern web applications who's scope extends beyond "Hello World" will at some point encounter a situation where they will interact with another application over a network connection, be that a database, logging system or any other type of network application. Most of these applications require specific setup and dependencies, some can even span different languages and ecosystems, or worst of all, two different versions of the same language.
 
@@ -19,7 +19,7 @@ Docker eases the pain of installing these networked dependencies through the use
 Containerisation has transformed the software world, in the same way that putting real life objects inside containers has transformed the shipping industry.
 
 Lets take a look at this forklift:
-![Picture of a forklift lifting up a shipping container](t1.jpg)
+![Forklift lifting up a shipping container](t1.jpg)
 > A forklift can only lift containers
 
 You will notice something about this forklift: it can only lift one kind of object. It would be impossible, or at least damaging if we were to attempt to use it to lift a car, or a pile of boxes or a shipment of sensitive electronics, yet this forklift probably lifts all of these objects every single day, that's because all of these differently shaped objects are stored *inside* of shipping containers, and the forklift is really good at lifting those.
@@ -28,7 +28,7 @@ Docker containers are the software equivalent of those shipping containers, they
 
 ## A concrete example
 
-Let's take an example. I have a linux machine that does not have Java installed, if I run the java command, I get the following:
+Let's take an example. I have a Linux machine that does not have Java installed, if I run the `java` command, I get the following:
 
 ```bash
 divan@linuxbox:~$ java
@@ -40,7 +40,7 @@ sudo apt install openjdk-11-jre-headless
 sudo apt install openjdk-8-jre-headless
 ```
 
-Now If I wanted to run an application like [Zipkin](https://zipkin.io/pages/quickstart.html) for example. I would need to first install java on this machine. However, I have another alternative. I could instead pull down a container with the application and all of its dependancies inside it and docker would know how to run it.
+Now If I wanted to run an application like [Zipkin](https://zipkin.io/pages/quickstart.html) for example. I would need to first install Java on this machine. However, I have another alternative. I could instead set up Docker and pull down a container with the application *and* all of its dependancies inside it and docker would know how to run it.
 
 So instead of running:
 ```bash
@@ -53,10 +53,15 @@ I would run:
 docker run -d -p 9411:9411 openzipkin/zipkin
 ```
 
+This will start up a copy of the Zipkin Docker image, and if it doesn't find it on this local machine, it will pull it from [DockerHub](https://hub.docker.com/r/openzipkin/zipkin/)
+
+Now this may seem pointless right now, since I have only replaced the one software install (Java) with another software install (Docker), but let's take this a step further and install [Unleash](https://github.com/Unleash/unleash) on our machine. 
+
+Unleash requires [Node.JS](https://nodejs.org/en/) to be installed, and perhaps more importantly, It requires an instance of [PostgreSQL](https://www.postgresql.org/)
 
 
-## Why compose matters
 
+## Docker Compose
 [![](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVERcbiAgRkUoRnJvbnRlbmQpIC0tPiBHXG4gIEcoR2F0ZXdheS9CRkYpIC0tPlUoVXNlciBTZXJ2aWNlKVxuICBVIC0tPiBEQlsoUG9zdGdyZXMpXVxuICBVIC0tPiBSW1JhYmJpdE1RXVxuICBSIC0tPiBNKE1haWwgU2VydmljZSlcbiAgVSAtLT4gTChHcmFwaCBNYW5hZ2VtZW50IFNlcnZpY2UpXG4gIEwgLS0-IE5bKE5lbzRqKV1cblx0XHQiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVERcbiAgRkUoRnJvbnRlbmQpIC0tPiBHXG4gIEcoR2F0ZXdheS9CRkYpIC0tPlUoVXNlciBTZXJ2aWNlKVxuICBVIC0tPiBEQlsoUG9zdGdyZXMpXVxuICBVIC0tPiBSW1JhYmJpdE1RXVxuICBSIC0tPiBNKE1haWwgU2VydmljZSlcbiAgVSAtLT4gTChHcmFwaCBNYW5hZ2VtZW50IFNlcnZpY2UpXG4gIEwgLS0-IE5bKE5lbzRqKV1cblx0XHQiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ)
 
 
