@@ -16,15 +16,15 @@ Docker eases the pain of installing these networked dependencies through the use
 
 ## Containerisation and forklifts
 
-Containerisation has transformed the software world, in the same way that putting real life objects inside containers has transformed the shipping industry.
+Containerisation has transformed the software world in the same way that putting real life objects inside containers has transformed the shipping industry.
 
 Lets take a look at this forklift:
 ![Forklift lifting up a shipping container](t1.jpg)
 > A forklift can only lift containers
 
-You will notice something about this forklift: it can only lift one kind of object. It would be impossible, or at least damaging if we were to attempt to use it to lift a car, or a pile of boxes or a shipment of sensitive electronics, yet this forklift probably lifts all of these objects every single day, that's because all of these differently shaped objects are stored *inside* of shipping containers, and the forklift is really good at lifting those.
+You will notice something about this forklift: it is designed to lift only one kind of object. It would be impossible, or at least damaging if we were to attempt to use it to lift a car, or a pile of boxes or a shipment of sensitive electronics, yet this forklift probably lifts all of those objects every single day. This is because all of these differently shaped objects are stored *inside* of the shipping containers, and the forklift is really good at lifting those.
 
-Docker containers are the software equivalent of those shipping containers, they can contain different types of software that have different dependencies but because they are in a container it allows us to treat them all the same way.
+Docker containers are the software equivalent of those shipping containers, they can contain different types of software that have different dependencies, but because they are in a container it allows us to treat them all the same way.
 
 ## A concrete example
 
