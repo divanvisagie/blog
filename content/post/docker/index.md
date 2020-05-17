@@ -53,7 +53,7 @@ I would run:
 docker run -d -p 9411:9411 openzipkin/zipkin
 ```
 
-This will start up a copy of the Zipkin Docker image, exposing the port 9411 as 9411 on your machine, and if it doesn't find it on this local machine, it will pull it from [DockerHub](https://hub.docker.com/r/openzipkin/zipkin/).Once it is set up , you will be able to browse to zipking at http://localhost:9411
+This will start up a copy of the Zipkin Docker image, exposing the port 9411 as 9411 on your machine, and if it doesn't find it on this local machine, it will pull it from [DockerHub](https://hub.docker.com/r/openzipkin/zipkin/).Once it is set up , you will be able to browse to zipking at [http://localhost:9411](http://localhost:9411)
 
 Now this may seem pointless right now, since I have only replaced the one software install (Java) with another software install (Docker), but let's take this a step further and install [Unleash](https://github.com/Unleash/unleash) on our machine. 
 
@@ -98,12 +98,14 @@ services:
     image: postgres:10-alpine
 ```
 
-This will reduce the unleash environment in our previous example to running :
+This will reduce the unleash environment in our previous example to running:
 
 ```bash
 docker-compose up
 ```
 
 In the directory that contains the definition file. Compose as a developer tool, especially when dealing with networked applications is envaluable and allows us to simulate having multiple machines without having to own our own data-center.
+
+It also is the tip of the iceberg in a concept called Container Orchestration, which allows us to spin up and tear down server applications at will in response to load. That is beyond the scope of this article, but is definately a contributing factor to Docker's popularity in production environments
 
 
