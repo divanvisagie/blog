@@ -53,12 +53,23 @@ I would run:
 docker run -d -p 9411:9411 openzipkin/zipkin
 ```
 
-This will start up a copy of the Zipkin Docker image, and if it doesn't find it on this local machine, it will pull it from [DockerHub](https://hub.docker.com/r/openzipkin/zipkin/)
+This will start up a copy of the Zipkin Docker image, exposing the port 9411 as 9411 on your machine, and if it doesn't find it on this local machine, it will pull it from [DockerHub](https://hub.docker.com/r/openzipkin/zipkin/).Once it is set up , you will be able to browse to zipking at http://localhost:9411
 
 Now this may seem pointless right now, since I have only replaced the one software install (Java) with another software install (Docker), but let's take this a step further and install [Unleash](https://github.com/Unleash/unleash) on our machine. 
 
-Unleash requires [Node.JS](https://nodejs.org/en/) to be installed, and perhaps more importantly, It requires an instance of [PostgreSQL](https://www.postgresql.org/)
+Unleash requires [Node.JS](https://nodejs.org/en/) to be installed, and perhaps more importantly, It requires an instance of [PostgreSQL](https://www.postgresql.org/).
 
+Because we are using docker, this won't be much of a problem because the interface is the same
+
+```bash
+docker run --name unleash-postgres -p 5432:5432 -e POSTGRES_PASSWORD=postgres -d postgres
+```
+
+And now we simply install unleash with the same command:
+
+```
+docker run -e DATABASE_URL=postgres://user:pass@localhost:5432/unleash -d unleashorg/unleash-server
+```
 
 
 ## Docker Compose
