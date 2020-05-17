@@ -40,7 +40,7 @@ sudo apt install openjdk-11-jre-headless
 sudo apt install openjdk-8-jre-headless
 ```
 
-Now If I wanted to run an application like [Zipkin](https://zipkin.io/pages/quickstart.html) for example. I would need to first install Java on this machine. However, I have another alternative. I could instead set up Docker and pull down a container with the application *and* all of its dependancies inside it and docker would know how to run it.
+Now If I wanted to run an application like [Zipkin](https://zipkin.io/pages/quickstart.html) for example. I would need to first install Java on this machine. However, I have an alternative; I could instead set up Docker and pull down a container with the application *and* all of its dependancies inside it and docker would know how to run it.
 
 So instead of running:
 ```bash
@@ -68,14 +68,7 @@ docker run --name unleash-postgres -p 5432:5432 -e POSTGRES_PASSWORD=postgres -d
 And now we simply install unleash with the same command:
 
 ```
-docker run -e DATABASE_URL=postgres://user:pass@localhost:5432/unleash -d unleashorg/unleash-server
+docker run -e DATABASE_URL=postgres://user:postgres@localhost:5432/unleash -d unleashorg/unleash-server
 ```
 
-
-## Docker Compose
-[![](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVERcbiAgRkUoRnJvbnRlbmQpIC0tPiBHXG4gIEcoR2F0ZXdheS9CRkYpIC0tPlUoVXNlciBTZXJ2aWNlKVxuICBVIC0tPiBEQlsoUG9zdGdyZXMpXVxuICBVIC0tPiBSW1JhYmJpdE1RXVxuICBSIC0tPiBNKE1haWwgU2VydmljZSlcbiAgVSAtLT4gTChHcmFwaCBNYW5hZ2VtZW50IFNlcnZpY2UpXG4gIEwgLS0-IE5bKE5lbzRqKV1cblx0XHQiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVERcbiAgRkUoRnJvbnRlbmQpIC0tPiBHXG4gIEcoR2F0ZXdheS9CRkYpIC0tPlUoVXNlciBTZXJ2aWNlKVxuICBVIC0tPiBEQlsoUG9zdGdyZXMpXVxuICBVIC0tPiBSW1JhYmJpdE1RXVxuICBSIC0tPiBNKE1haWwgU2VydmljZSlcbiAgVSAtLT4gTChHcmFwaCBNYW5hZ2VtZW50IFNlcnZpY2UpXG4gIEwgLS0-IE5bKE5lbzRqKV1cblx0XHQiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ)
-
-
-
-
-> Header photo by https://unsplash.com/@chuttersnap
+Unleash start up with node inside it's container and will have access to this PostgreSQL instance since the port has been made available.
