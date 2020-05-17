@@ -68,7 +68,7 @@ docker run --name unleash-postgres -p 5432:5432 -e POSTGRES_PASSWORD=postgres -d
 And now we simply install unleash with the same command:
 
 ```bash
-docker run -e DATABASE_URL=postgres://user:postgres@localhost:5432/unleash -p 4242:4242 -d unleashorg/unleash-server
+docker run -e DATABASE_URL=postgres://user:postgres@[host-ip]:5432/unleash -p 4242:4242 -d unleashorg/unleash-server
 ```
 
 Unleash will start up with node inside its container and will have access to this PostgreSQL instance since the port has been made available.
