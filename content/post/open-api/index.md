@@ -1,6 +1,8 @@
-# Documenting RESTful APIs
-
-# An introduction to OpenAPI and Swagger
+---
+title: Documenting RESTful APIs
+subtitle: An introduction to OpenAPI and Swagger
+date: 2020-06-22
+---
 
 Let's say we are tasked with creating a RESTful API that will return a user object based on the user Id, e.g. [http://myApi/user/123](http://myapi/user/123) will return the user with the ID 123.
 
