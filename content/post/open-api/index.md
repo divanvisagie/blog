@@ -162,17 +162,17 @@ We simply need to add the following controller `UserController.java`
 @RequestMapping("/user")
 public class UserController {
 
-    @GetMapping("/{id}")
-    public ResponseEntity<User> getUser(@PathVariable("id") String id) {
-        User response = new User()
-                        .setId(123)
-                        .setUsername("fake")
-                        .setDisplayName("Fake User")
-                        .setAccountStatus("Activated")
-                        .setEmail("fakeemail@test.com");
-        
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
+	@GetMapping("/{id}")
+	public ResponseEntity<User> getUser(@PathVariable("id") String id) {
+		User response = new User()
+						.setId(123)
+						.setUsername("fake")
+						.setDisplayName("Fake User")
+						.setAccountStatus("Activated")
+						.setEmail("fakeemail@test.com");
+
+		return new ResponseEntity<>(response, HttpStatus.OK);
+	}
 }
 ```
 
@@ -214,11 +214,11 @@ Inject an instance of the OpenAPI object to tell the generator what to call itse
 ```java
 @Bean
 public OpenAPI customOpenAPI() {
-		return new OpenAPI()
-				.info(new Info().title("User Service").version("v1").description(
-						"Service for user management")
-						.termsOfService("http://swagger.io/terms/")
-						.license(new License().name("Apache 2.0").url("http://springdoc.org")));
+	return new OpenAPI()
+			.info(new Info().title("User Service").version("v1").description(
+					"Service for user management")
+					.termsOfService("http://swagger.io/terms/")
+					.license(new License().name("Apache 2.0").url("http://springdoc.org")));
 }
 ```
 
