@@ -26,7 +26,7 @@ Defining a standard without looking for an existing one first though can lead to
 
 ![Untitled.png](Untitled.png)
 
-[https://xkcd.com/927/](https://xkcd.com/927/)
+> [https://xkcd.com/927/](https://xkcd.com/927/)
 
 This is where the [Open API Specification](https://swagger.io/specification/) comes in.
 
