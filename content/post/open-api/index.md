@@ -10,8 +10,8 @@ Let's say we are tasked with creating a RESTful API that will return a user obje
 {
   id: 123,
   username: 'realFakeDoors',
-  displayName: 'Real Fake Doors'
-  email: 'getreal@fakedoors.com'
+  displayName: 'Real Fake Doors',
+  email: 'getreal@fakedoors.com',
   accountStatus: 'verified'
 }
 ```
