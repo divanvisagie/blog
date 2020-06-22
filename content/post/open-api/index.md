@@ -117,13 +117,13 @@ Now you may be thinking to yourself: "You said easier to read", and this documen
 
 ![Screenshot_2020-06-18_at_20.33.30.png](Screenshot_2020-06-18_at_20.33.30.png)
 
-Our user endpoint displayed in the swagger editor
+> Our user endpoint displayed in the swagger editor
 
 OpenAPI documents can also be imported directly into Postman as a collection.
 
 ![Screenshot_2020-06-18_at_20.02.01.png](Screenshot_2020-06-18_at_20.02.01.png)
 
-Our user endpoint document imported as a postman collection
+> Our user endpoint document imported as a postman collection
 
 Furthermore, Swagger provides a tool called [Swagger UI](https://swagger.io/tools/swagger-ui/), which you would have seen a hint of in the Swagger Editor. This is a simple web based UI that you can set up to display and even try out examples from your OpenAPI specification. You can choose to display this anywhere you could display a website, be it on your company intranet, developer facing website if your API is public facing, or my personal favourite, package it as the root endpoint of the API itself.
 
