@@ -1,10 +1,10 @@
-# Sbt heiroglyphs and multi-projects explained
+---
+title: Sbt heiroglyphs and multi-projects explained
+subtitle: A starter guide to understanding what an sbt file is actually saying
+date: 2016-06-24
+---
 
-# A starter guide to understanding what an sbt file is actually saying
-
-- Jun 24, 2016
-
-![https://miro.medium.com/max/370/1*IR5trBgmj2eBf2CZe5I-kg.png](https://miro.medium.com/max/370/1*IR5trBgmj2eBf2CZe5I-kg.png)
+![SBT Logo](https://miro.medium.com/max/370/1*IR5trBgmj2eBf2CZe5I-kg.png)
 
 When you get started with Scala one of the first things you are going to come across is sbt , Scala’s very own build tool. When I started using Scala, I just generated projects via *Activator* and ran the basic *test* and *run* commands in sbt. When things get serious though, you need to add some libraries.
 
@@ -53,7 +53,7 @@ So far , we have covered a simple build that , as I mentioned, builds stuff in s
 
 Enter the Multi project build! In one of these builds, each project lives in its own base directory and builds its own jar.
 
-![https://miro.medium.com/max/236/1*m8A3q0JV9zn4taD7vQ1QZQ.jpeg](https://miro.medium.com/max/236/1*m8A3q0JV9zn4taD7vQ1QZQ.jpeg)
+![Captain jack sparrow holding a jar of dirt](https://miro.medium.com/max/236/1*m8A3q0JV9zn4taD7vQ1QZQ.jpeg)
 
 Sbt can define a project by defining a **`lazy val`** of type **`Project`**
 
@@ -137,4 +137,4 @@ lazy val server = (project in file("server")).
 
 This is the same as the *idl* project but has a *dependsOn* method , which creates an ordering between the two projects , as *server* requires *idl* to build first. Running *sbt server/compile* will build the dependency before the server, this is great in this case where *server* relies on files that come from the *idl* build.
 
-Great , you can now understand and theoretically implement multi-projects. If you want to learn more about them sbt has provided [this doc](http://www.scala-sbt.org/0.13/docs/Multi-Project.html).
+Great, you can now understand and theoretically implement multi-projects. If you want to learn more about them sbt has provided [this doc](http://www.scala-sbt.org/0.13/docs/Multi-Project.html).
