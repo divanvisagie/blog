@@ -17,9 +17,9 @@ libraryDependencies += “org.scalatest” %% “scalatest” % “2.2.4” % �
 
 The symbols in here work like this:
 
-**`:=`** Tells sbt we are assigning a setting to the key in the build definition
+`:=` Tells sbt we are assigning a setting to the key in the build definition
 
-**`+=`** Appends rather than assigns , as some keys are sequences. This is a really good idea , as in general most projects have more than one library dependency. There are other ways to append keys as well , such as **`++=`** which will add a sequence to a key:
+`+=` Appends rather than assigns , as some keys are sequences. This is a really good idea , as in general most projects have more than one library dependency. There are other ways to append keys as well , such as `++=` which will add a sequence to a key:
 
 ```scala
 libraryDependencies ++= Seq( 
@@ -47,9 +47,9 @@ So effectively the extra `%%` means it figures out what Scala version you are 
 
 That actually covers it for the heiroglyphs , they are really not too bad once you understand their meaning, and this simple setup can get your Scala project running, testing and managing your dependencies.
 
-# **The multi project build**
+# The multi project build
 
-So far , we have covered a simple build that , as I mentioned, builds stuff in src/. Sooner or later however you are going to run into a situation where you want to have multiple build definitions for projects that sit in different directories.
+So far, we have covered a simple build that , as I mentioned, builds stuff in src/. Sooner or later however you are going to run into a situation where you want to have multiple build definitions for projects that sit in different directories.
 
 Enter the Multi project build! In one of these builds, each project lives in its own base directory and builds its own jar.
 
@@ -99,7 +99,7 @@ lazy val root = (project in file(".")).
     server)
 ```
 
-Here , the *aggregate* method will aggregate the projects , treating them as one , so when you run *sbt compile* for example, both **idl** and **server** projects will compiled.
+Here, the *aggregate* method will aggregate the projects, treating them as one, so when you run *sbt compile* for example, both **idl** and **server** projects will compiled.
 
 Next lets take a look at the *idl* project:
 
@@ -135,6 +135,6 @@ lazy val server = (project in file("server")).
   dependsOn(idl)
 ```
 
-This is the same as the *idl* project but has a *dependsOn* method , which creates an ordering between the two projects , as *server* requires *idl* to build first. Running *sbt server/compile* will build the dependency before the server, this is great in this case where *server* relies on files that come from the *idl* build.
+This is the same as the *idl* project but has a *dependsOn* method, which creates an ordering between the two projects , as *server* requires *idl* to build first. Running *sbt server/compile* will build the dependency before the server, this is great in this case where *server* relies on files that come from the *idl* build.
 
 Great, you can now understand and theoretically implement multi-projects. If you want to learn more about them sbt has provided [this doc](http://www.scala-sbt.org/0.13/docs/Multi-Project.html).
