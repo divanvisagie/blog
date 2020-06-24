@@ -6,9 +6,9 @@ date: 2016-06-24
 
 ![SBT Logo](https://miro.medium.com/max/370/1*IR5trBgmj2eBf2CZe5I-kg.png)
 
-When you get started with Scala one of the first things you are going to come across is sbt , Scala’s very own build tool. When I started using Scala, I just generated projects via *Activator* and ran the basic *test* and *run* commands in sbt. When things get serious though, you need to add some libraries.
+When you get started with Scala one of the first things you are going to come across is sbt, Scala’s very own build tool. When I started using Scala, I just generated projects via *Activator* and ran the basic *test* and *run* commands in sbt. When things get serious though, you need to add some libraries.
 
-So you open up the *build.sbt* file and are greeted with things that look like madness: the `:=` , `+=` and `%%` . You think to yourself “I just started this thing and now I’m doing category theory!”. Don’t worry, this is not category theory, that only comes in later when you start doing monadic light-bending builds. These operators are just how sbt deals with settings. Let’s take a look at the basic build settings of the *minimal-scala* project that Activator spits out and focus on the symbols used in the basic default [build definition](http://www.scala-sbt.org/0.13/docs/Basic-Def.html) which builds a single project in the *src/* directory.
+So you open up the *build.sbt* file and are greeted with things that look like madness: the `:=`, `+=` and `%%` . You think to yourself “I just started this thing and now I’m doing category theory!”. Don’t worry, this is not category theory, that only comes in later when you start doing monadic light-bending builds. These operators are just how sbt deals with settings. Let’s take a look at the basic build settings of the *minimal-scala* project that Activator spits out and focus on the symbols used in the basic default [build definition](http://www.scala-sbt.org/0.13/docs/Basic-Def.html) which builds a single project in the *src/* directory.
 
 ```scala
 name := “””minimal-scala”””version := “1.0”scalaVersion := “2.11.7”// Change this to another test framework if you prefer
@@ -31,7 +31,7 @@ libraryDependencies ++= Seq(
 )
 ```
 
-**`%`** and **`%%`** get a little tricky , they define the ids and versions of each library in the sequence, but it’s safe to say that:
+`%` and `%%` get a little tricky , they define the ids and versions of each library in the sequence, but it’s safe to say that:
 
 ```scala
 "org.scala-tools" % "scala-stm_2.11.1" % "0.3"
@@ -43,7 +43,7 @@ Is the equivalent of
 "org.scala-tools" %% "scala-stm" % "0.3"
 ```
 
-So effectively the extra **`%%`** means it figures out what Scala version you are on. You can read more on library dependencies in the [docs](http://www.scala-sbt.org/0.13/docs/Library-Dependencies.html).
+So effectively the extra `%%` means it figures out what Scala version you are on. You can read more on library dependencies in the [docs](http://www.scala-sbt.org/0.13/docs/Library-Dependencies.html).
 
 That actually covers it for the heiroglyphs , they are really not too bad once you understand their meaning, and this simple setup can get your Scala project running, testing and managing your dependencies.
 
@@ -55,13 +55,13 @@ Enter the Multi project build! In one of these builds, each project lives in its
 
 ![Captain jack sparrow holding a jar of dirt](https://miro.medium.com/max/236/1*m8A3q0JV9zn4taD7vQ1QZQ.jpeg)
 
-Sbt can define a project by defining a **`lazy val`** of type **`Project`**
+Sbt can define a project by defining a `lazy val` of type `Project`
 
 ```scala
 lazy val utes = project.in(file("util"))
 ```
 
-The name of the **`val**` will be the name when we refer to the project in sbt , so in the case above , *sbt utes/compile* will compile the util project
+The name of the `val` will be the name when we refer to the project in sbt, so in the case above, *sbt utes/compile* will compile the util project
 
 Twitter’s [finatra-activator-thrift-seed](https://github.com/twitter/finatra-activator-thrift-seed) is a nice [example](https://github.com/twitter/finatra-activator-thrift-seed/blob/master/build.sbt) of these in practise, so we will use it as an example to work through.
 
@@ -118,7 +118,7 @@ lazy val idl = (project in file("idl")).
   )
 ```
 
-This one is quite normal , the only thing to notice here is the *settings(baseSettings)*, which is how we tell this project it needs to pull in those base settings from earlier, other than that the second settings block is just the normal single project style configuration we saw earlier in the article.
+This one is quite normal, the only thing to notice here is the *settings(baseSettings)*, which is how we tell this project it needs to pull in those base settings from earlier, other than that the second settings block is just the normal single project style configuration we saw earlier in the article.
 
 Finally let’s take a look at the *server* project:
 
