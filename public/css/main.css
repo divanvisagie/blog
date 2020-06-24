@@ -126,6 +126,7 @@ img{
   margin-right:auto;
   display: flex;
   border-radius: 5px;
+  background: white;
 }
 
 pre, .codehilite {
