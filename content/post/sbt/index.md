@@ -4,15 +4,15 @@ subtitle: A starter guide to understanding what an sbt file is actually saying
 date: 2016-06-24
 ---
 
-![SBT Logo](https://miro.medium.com/max/370/1*IR5trBgmj2eBf2CZe5I-kg.png)
+![SBT Logo](sbt-logo.png)
 
 When you get started with Scala one of the first things you are going to come across is sbt, Scala’s very own build tool. When I started using Scala, I just generated projects via *Activator* and ran the basic *test* and *run* commands in sbt. When things get serious though, you need to add some libraries.
 
-So you open up the *build.sbt* file and are greeted with things that look like madness: the `:=`, `+=` and `%%` . You think to yourself “I just started this thing and now I’m doing category theory!”. Don’t worry, this is not category theory, that only comes in later when you start doing monadic light-bending builds. These operators are just how sbt deals with settings. Let’s take a look at the basic build settings of the *minimal-scala* project that Activator spits out and focus on the symbols used in the basic default [build definition](http://www.scala-sbt.org/0.13/docs/Basic-Def.html) which builds a single project in the *src/* directory.
+So you open up the *build.sbt* file and are greeted with things that look like madness: the `:=`, `+=` and `%%` . You think to yourself "I just started this thing and now I’m doing category theory!". Don’t worry, this is not category theory, that only comes in later when you start doing monadic light-bending builds. These operators are just how sbt deals with settings. Let’s take a look at the basic build settings of the *minimal-scala* project that Activator spits out and focus on the symbols used in the basic default [build definition](http://www.scala-sbt.org/0.13/docs/Basic-Def.html) which builds a single project in the *src/* directory.
 
 ```scala
-name := “””minimal-scala”””version := “1.0”scalaVersion := “2.11.7”// Change this to another test framework if you prefer
-libraryDependencies += “org.scalatest” %% “scalatest” % “2.2.4” % “test”
+name := """minimal-scala"""version := "1.0"scalaVersion := "2.11.7"// Change this to another test framework if you prefer
+libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.4" % "test"
 ```
 
 The symbols in here work like this:
@@ -23,11 +23,11 @@ The symbols in here work like this:
 
 ```scala
 libraryDependencies ++= Seq( 
-  “com.twitter” %% “finagle-core” % “6.34.0”, 
-  “com.twitter” %%  
-  “finagle-stats” % “6.34.0”, 
-  “com.twitter” % “finagle-thrift_2.11” % “6.34.0”, 
-  “org.apache.thrift” % “libthrift” % “0.9.0” % “compile” 
+  "com.twitter" %% "finagle-core" % "6.34.0", 
+  "com.twitter" %%  
+  "finagle-stats" % "6.34.0", 
+  "com.twitter" % "finagle-thrift_2.11" % "6.34.0", 
+  "org.apache.thrift" % "libthrift" % "0.9.0" % "compile" 
 )
 ```
 
@@ -53,7 +53,7 @@ So far, we have covered a simple build that , as I mentioned, builds stuff in sr
 
 Enter the Multi project build! In one of these builds, each project lives in its own base directory and builds its own jar.
 
-![Captain jack sparrow holding a jar of dirt](https://miro.medium.com/max/236/1*m8A3q0JV9zn4taD7vQ1QZQ.jpeg)
+![Captain Jack Sparrow holding a jar of dirt](jarofdirt.jpeg)
 
 Sbt can define a project by defining a `lazy val` of type `Project`
 
@@ -69,15 +69,15 @@ First let’s look at the *baseSettings*:
 
 ```scala
 lazy val baseSettings = Seq(
-  version := “1.0.0-SNAPSHOT”,
-  scalaVersion := “2.11.7”,
+  version := "1.0.0-SNAPSHOT",
+  scalaVersion := "2.11.7",
   ivyScala := // ivy stuff,
   libraryDependencies ++= Seq(
     // libs
   ),
   resolvers ++= Seq(
-    Resolver.sonatypeRepo(“releases”),
-    “Twitter Maven” at “https://maven.twttr.com"
+    Resolver.sonatypeRepo("releases"),
+    "Twitter Maven" at "https://maven.twttr.com"
   ),
   fork in run := true
 )
