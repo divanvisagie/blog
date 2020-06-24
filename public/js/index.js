@@ -1,4 +1,4 @@
-var themToggle = document.createElement('div')
+var themeToggleButton = document.createElement('div')
 
 function getTextFor(theme) {
     if (theme === 'dark')
@@ -25,7 +25,7 @@ function toggleDarkMode() {
 
     localStorage.setItem('theme', opposite)
     document.documentElement.setAttribute('data-theme', opposite);
-    themToggle.innerText = getTextFor(currentTheme);
+    themeToggleButton.innerText = getTextFor(currentTheme);
 
     detectColorScheme(); //apply the theme
 }
@@ -34,20 +34,21 @@ function toggleDarkMode() {
 
 var currentTheme = getCurrentTheme();
 
-themToggle.innerText = getTextFor(getOpposite(currentTheme))
-themToggle.onclick = toggleDarkMode
-themToggle.style.display = 'block'
-themToggle.style.top = '16px'
-themToggle.style.right = '16px'
-themToggle.style.position = 'absolute'
-themToggle.style.height = '38px'
-themToggle.style.width = '38px'
-themToggle.style.border = 'none'
-themToggle.style.background = 'none'
-themToggle.style.color = 'white'
-themToggle.style.fontSize = '24px'
-themToggle.style.padding = '0'
-themToggle.style.textAlign = 'center'
-themToggle.style.userSelect = 'none'
-document.querySelector('nav').appendChild(themToggle)
+themeToggleButton.innerText = getTextFor(getOpposite(currentTheme))
+themeToggleButton.onclick = toggleDarkMode
+themeToggleButton.style.display = 'block'
+themeToggleButton.style.top = '16px'
+themeToggleButton.style.right = '16px'
+themeToggleButton.style.position = 'absolute'
+themeToggleButton.style.height = '38px'
+themeToggleButton.style.width = '38px'
+themeToggleButton.style.border = 'none'
+themeToggleButton.style.background = 'none'
+themeToggleButton.style.color = 'white'
+themeToggleButton.style.fontSize = '24px'
+themeToggleButton.style.padding = '0'
+themeToggleButton.style.textAlign = 'center'
+themeToggleButton.style.userSelect = 'none'
+themeToggleButton.style.cursor = 'pointer'
+document.querySelector('nav').appendChild(themeToggleButton)
 }())
