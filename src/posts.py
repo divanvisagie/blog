@@ -69,7 +69,7 @@ def get_metadata_for_post(post):
     post.html = markdown_to_html(post_md)
   
     # Add Titles
-    post.html = f'<h1 style="margin-bottom:0;">{post.title}</h1> <h2 style="margin:0;">{post.subtitle}</h2><span style="color: #4C566A; font-size: 12px;">{post.date}</span>{post.html}'
+    post.html = f'<h1 style="margin-bottom:0;">{post.title}</h1> <h2 style="margin:0;">{post.subtitle}</h2><span  class="date">{post.date}</span>{post.html}'
     return post
 
 def insert_in_template(post):

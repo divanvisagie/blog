@@ -1,24 +1,64 @@
+:root {
+  --toolbar-background: #222;
+  --toolbar-foreground: #eee;
+  --toolbar-foreground-hover: #fff;
+  --code-background: #222;
+  --code-foreground: #E5E9F0;
+  --footer-background: #f1f1f1;
+  --background-color: white;
+  --text-color: black;
+  --title-color: #222;
+  --subtitle-color: #333;
+  --link-color: #2222ff;
+}
+
+/* @media (prefers-color-scheme: dark) { */
+[data-theme="dark"] {
+  /* :root { */
+    --toolbar-background: #202020;
+    --code-background: #202020;
+    --background-color: #252525;
+    --text-color: #eee;
+    --title-color: #eee;
+    --subtitle-color: #d0d0d0;
+    --footer-background:#222;
+    --link-color: #81a1c1;
+    --link-color-visited: #b48ead;
+  /* } */
+}
+
 html {
   width: 100%;
   font-weight: 400;
   font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
+a {
+  color: var(--link-color);
+}
+
+a:visited {
+  color: var(--link-color-visited);
+}
+
 nav {
-  /* padding-left: 15px; */
   font-kerning: auto;
-  background: #282d38;
+  background: var(--toolbar-background);
   overflow: hidden;
   height: 70px;
 }
 
+nav a:visited {
+ color: var(--toolbar-foreground);
+}
+
 nav a {
-  color: #E5E9F0;
+  color: var(--toolbar-foreground);
   text-decoration: none;
 }
 
 nav a:hover {
-  color: white;
+  color: var(--toolbar-foreground-hover);
 }
 
 nav > div {
@@ -52,6 +92,8 @@ nav h2 {
 }
 
 body {
+  color: var(--text-color);
+  background: var(--background-color);
   margin: 0;
   position: absolute;
   width:100%;
@@ -62,12 +104,12 @@ body {
 }
 
 h1 {
-  color: #282d38;
+  color: var(--title-color);
   font-weight: 500;
 }
 
 h2 {
-  color: #4C566A;
+  color: var(--subtitle-color);
   font-weight: 500;
 }
 
@@ -77,6 +119,7 @@ img{
   margin-left:auto;
   margin-right:auto;
   display: flex;
+  border-radius: 5px;
 }
 
 pre, .codehilite {
@@ -84,8 +127,8 @@ pre, .codehilite {
 }
 
 pre {
-  background: #282d38;
-  color: #E5E9F0;
+  background: var(--code-background);
+  color: var(--code-foreground);
   font-size: 16px;
   padding: 8px;
   overflow-x: auto;
@@ -93,13 +136,13 @@ pre {
 
 blockquote {
   font-style: italic;
-  color: #4C566A;
+  color: var(--subtitle-color);
   text-align: center;
 }
 
 footer {
-  background: #ECEFF4;
-  color: #4C566A;
+  background: var(--footer-background);
+  color: var(--subtitle-color);
   margin-left: auto;
   margin-right: auto;
   justify-content: center;
@@ -154,14 +197,22 @@ footer {
 
 .posts-list span {
   font-size: 12px;
-  color: #4C566A;
+  color: var(--subtitle-color);
   justify-content: right;
 }
 
 p > code {
-    background: #eee;
+    background: var(--code-background);
+    color: var(--code-foreground);
     padding-left: 5px;
     padding-right: 5px;
     border-radius: 5px;
     font-family: monospace;
+}
+
+
+.date {
+  color: var(--subtitle-color);
+  opacity: 0.9; 
+  font-size: 12px;
 }

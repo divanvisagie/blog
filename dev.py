@@ -13,7 +13,8 @@ def main():
     # build()
     server = Server()
     server.watch('content/post/**/*.md',build)
-    server.serve(root='public')
+    server.watch('public/**/*.css', build)
+    server.serve(root='build')
 
 if __name__ == '__main__':
     main()
