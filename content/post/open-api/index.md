@@ -113,7 +113,7 @@ externalDocs:
 security: []
 ```
 
-Now you may be thinking to yourself: "You said easier to read", and this document at first glance admittedly looks a little complicated. But while this may not be the best format for humans to read, since OpenAPI is a standard, it makes it very easy for programs to read. As a result there exists a large selection of tools that allow you to visualise these documents, one such as tool is the [Swagger Editor](https://editor.swagger.io/).
+Now you may be thinking to yourself: "You said easier to read", and this document at first glance admittedly looks a little complicated. But while this may not be the best format for humans to read, since OpenAPI is a standard, it makes it very easy for programs to read. As a result there exists a large selection of tools that allow you to visualise these documents, one such tool is the [Swagger Editor](https://editor.swagger.io/).
 
 ![Screenshot_2020-06-18_at_20.33.30.png](Screenshot_2020-06-18_at_20.33.30.png)
 
