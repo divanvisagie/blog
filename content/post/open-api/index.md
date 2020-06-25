@@ -151,7 +151,7 @@ Now for some languages, setting up auto generated OpenAPI documentation requires
 
 ## Java Example
 
-Lets take our user endpoint from earlier as an example. Here I will implement the user endpoint using in Java using Spring Boot. 
+Lets take our user endpoint from earlier as an example. Here I will implement the user endpoint in Java using Spring Boot. 
 
 After creating a simple [Spring Boot](https://spring.io/projects/spring-boot) project with [Spring Initializr](https://start.spring.io/), very little code needs to be added in order to to get a working mock endpoint.
 
