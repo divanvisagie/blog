@@ -20,9 +20,9 @@ Any downstream services will also have to be configured in order to know about t
 
 # How this becomes a problem
 
-Now lets imagine a scenario where a new version of the *Announcement Service* is deployed. As part of a [blue/green deployment strategy](https://martinfowler.com/bliki/BlueGreenDeployment.html), the IT team has decided that the new version of the Announcement Service will be deployed on a new box (`10.0.0.6`). Then all the downstream services will be updated to point to `10.0.0.6` instead of `10.0.0.4`.
+Now lets imagine a scenario where a new version of the *Announcement Service* is deployed. As part of a [blue/green deployment strategy](https://martinfowler.com/bliki/BlueGreenDeployment.html), the IT team has decided that the new version of the Announcement Service will be deployed on a new box (`10.0.0.6`). Then all the upstream services will be updated to point to `10.0.0.6` instead of `10.0.0.4`.
 
-If our servers are configured with a file like a *Web.config* or *application.properties* then we will need to update the configurations for both our *Gateway* and *Timeline Service*. Most times these sorts of configurations also require the service to be restarted in order to take effect, so even in this system with only a few services, the disruption is quite severe, taking out 3 services just because we deployed one new one, this is the problem that the Service Registry tries to solve.
+If our servers are configured with a file like a *Web.config* or *application.properties* then we will need to update the configurations for both our *Gateway* and *Timeline Service*. Most times these sorts of configurations also require the service to be restarted in order to take effect, so even in this system with only a few services, the disruption is quite severe, taking out 3 services just because we deployed one new one. This is the problem that the Service Registry tries to solve.
 
 # The Service Registry
 
