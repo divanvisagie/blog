@@ -1,6 +1,8 @@
-# Service Registry Pattern
-
-# Connecting Microservices
+---
+title: Service Registry Pattern
+subtitle: An easier way to connect services
+date: 2020-06-26
+---
 
 Microservice architectures are popular these days, but while they provide certain benefits they also introduce new problems. One of these problems is that even if you have only a few services, connecting to them via IP address can quickly become painstaking.
 
