@@ -66,6 +66,7 @@ def process_simple(content_folder, template_name):
 def build():
     print('starting the process')
     process_simple('about', 'about')
+    process_simple('cv', 'cv')
     posts = process_posts()
     process_index(posts)
 
