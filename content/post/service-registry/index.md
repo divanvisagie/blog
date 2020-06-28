@@ -82,23 +82,23 @@ In the above example the **announcement-service** portion of our URL would have 
 
 So:
 
- - "http://announcement-service/api/v1/announcement"
+ <code class="codehilite" style="background: var(--code-background);"><span class="s">- "http://announcement-service/api/v1/announcement"</span></code>
 
 Would have become:
 
-+ "http://10.0.0.4/api/v1/announcement"
+<code class="codehilite" style="background: var(--code-background);"><span class="ne">+ "http://10.0.0.4/api/v1/announcement"</span></code>
 
 The means by which this replacement happens though is by a concept called **Service Discovery**.
 
 There are 2 patterns for Service Discovery:
 
-[Server-side Service Discovery](https://microservices.io/patterns/server-side-discovery.html) operates at a network level, where a router, or load balancer sits on the network between the client service and the rest of the network, the router can then forward calls to the correct IP address based on the information it gets from the Service Registry.
+**[Server-side Service Discovery](https://microservices.io/patterns/server-side-discovery.html)** operates at a network level, where a router, or load balancer sits on the network between the client service and the rest of the network, the router can then forward calls to the correct IP address based on the information it gets from the Service Registry.
 
-[Client-side Service Discovery](https://microservices.io/patterns/client-side-discovery.html) on the other hand, implements this logic for routing and load balancing in the client service itself with all of the code for this logic being packaged as part of the client service.
+**[Client-side Service Discovery](https://microservices.io/patterns/client-side-discovery.html)** on the other hand, implements this logic for routing and load balancing in the client service itself with all of the code for this logic being packaged as part of the client service.
 
 Whether client or server side though, Service Discovery is the part of the system that makes the decision on which instances of a service to call and it does this using the information it gets from the Service Registry. 
 
-So far we have only ever had one instance of each of our services, but as I mentioned, service discovery usually also contains a [load balancer](https://en.wikipedia.org/wiki/Load_balancing_(computing)). Lets think back to our deployment scenario. What happens when we spin up our new *Announcement Service* on **`10.0.0.6`?
+So far we have only ever had one instance of each of our services, but as I mentioned, service discovery usually also contains a [load balancer](https://en.wikipedia.org/wiki/Load_balancing_(computing)). Lets think back to our deployment scenario. What happens when we spin up our new *Announcement Service* on `10.0.0.6`?
 
 <table>
 <thead>

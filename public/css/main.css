@@ -208,7 +208,7 @@ footer {
   justify-content: right;
 }
 
-p > code {
+p > code, li > code {
     background: var(--code-background);
     color: var(--code-foreground);
     padding-left: 5px;
