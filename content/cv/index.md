@@ -6,14 +6,14 @@ My current area of interest when it comes to Software Engineering is creating sy
 
 # Contact information
 
-```java
-00001 INFO  contact.Email           : [visagiedivan@gmail.com](mailto:visagiedivan@gmail.com)
-00002 INFO  contact.code.Github     : [https://github.com/divanvisagie](https://github.com/divanvisagie)
-00003 INFO  contact.social.Linkedin : [divan-visagie](https://www.linkedin.com/in/divan-visagie/)
-09129 INFO  contact.pesonal.Website : [dvisagie.com](https://dvisagie.com)
-```
 
----
+Type|Value
+---|---
+Email| <a href="mailto:visagiedivan@gmail.com">visagiedivan@gmail.com</a>
+Github| https://github.com/divanvisagie
+LinkedIn| https://www.linkedin.com/in/divan-visagie/
+Website| https://dvisagie.com
+
 
 # Work experience
 
@@ -81,7 +81,6 @@ Most of the projects I have worked with have contained a Database component. Fro
 
 I like to write and give talks on technical topics. I love sharing my knowledge and have blogged on my website throughout my career whenever I felt a piece of information would be useful to others. I have also given talks both internally and externally at Kaleidocode and at Agile SA.
 
----
 
 ## Languages
 
@@ -89,7 +88,6 @@ I like to write and give talks on technical topics. I love sharing my knowledge 
 
 Native speaker
 
----
 
 # Articles and Talks
 
@@ -106,7 +104,6 @@ Native speaker
 - [Making Better Technology Decisions (Lightning Talk)](https://www.youtube.com/watch?v=MRvvYJOx9og)
 - [Xamarin Mobile Applications Unpacked](https://youtu.be/uZL-p6miUxc?t=2477)
 
----
 
 # Education
 
