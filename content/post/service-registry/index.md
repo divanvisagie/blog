@@ -34,13 +34,36 @@ Now, when a service needs to know about the location of another in order to make
 
 Let's take our example again, if we could peer into the service registry, we would see the following information once everything is running:
 
-| Service Name | Instances
----|---
-gateway | 10.0.0.0
-user-service | 10.0.0.2
-email-service | 10.0.0.3
-announcement-service | 10.0.0.4
-timeline-service | 10.0.0.5
+<table>
+<thead>
+<tr>
+<th>Service Name</th>
+<th>Instances</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gateway</td>
+<td>10.0.0.0</td>
+</tr>
+<tr>
+<td>user-service</td>
+<td>10.0.0.2</td>
+</tr>
+<tr>
+<td>email-service</td>
+<td>10.0.0.3</td>
+</tr>
+<tr>
+<td>announcement-service</td>
+<td>10.0.0.4</td>
+</tr>
+<tr>
+<td>timeline-service</td>
+<td>10.0.0.5</td>
+</tr>
+</tbody>
+</table>
 
 When our *Gateway* or *Timeline Service* want to make a call to the *Announcement Service*, instead of using the IP configured directly in their config file, they will ask the service registry which instances are available and map the name to the appropriate IP address.
 
@@ -77,13 +100,36 @@ Whether client or server side though, Service Discovery is the part of the syste
 
 So far we have only ever had one instance of each of our services, but as I mentioned, service discovery usually also contains a [load balancer](https://en.wikipedia.org/wiki/Load_balancing_(computing)). Lets think back to our deployment scenario. What happens when we spin up our new *Announcement Service* on **`10.0.0.6`?
 
-| Service Name | Instances
----|---
-gateway | 10.0.0.0
-user-service | 10.0.0.2
-email-service | 10.0.0.3
-announcement-service | 10.0.0.4, 10.0.0.6
-timeline-service | 10.0.0.5
+<table>
+<thead>
+<tr>
+<th>Service Name</th>
+<th>Instances</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gateway</td>
+<td>10.0.0.0</td>
+</tr>
+<tr>
+<td>user-service</td>
+<td>10.0.0.2</td>
+</tr>
+<tr>
+<td>email-service</td>
+<td>10.0.0.3</td>
+</tr>
+<tr>
+<td>announcement-service</td>
+<td>10.0.0.4, 10.0.0.6</td>
+</tr>
+<tr>
+<td>timeline-service</td>
+<td>10.0.0.5</td>
+</tr>
+</tbody>
+</table>
 
 The new *Announcement Service* registers itself and we now see multiple IP addresses under the announcement-service name. In this case, the load balancer will make a decision based on how many requests it has already routed and try to keep a balance between sending requests to `10.0.0.4` and `10.0.0.6`.
 
