@@ -11,12 +11,12 @@ Microservices on the other hand make the problem of debugging much more complica
 ## Monolithic Example
 Let's take the example of a user registration flow for a monolithic application. When the client registers, an email should be sent to them to verify their email address.
 
-![Sequence diagram depicting monolithic arcitecture showing a user that registers, after which they are sent an email](mono-sequence.svg)
-
+![Sequence diagram depicting monolithic arcitecture showing a user that registers, after which they are sent an email](monolith-diag.svg)
 
 Internally this application consists of three parts, each layer calling the next:
 
 ![Monolithic UML Diagram](mono-uml.svg)
+
 
 
 These internals are very simple, but critically, each layer is still running in the same process, this makes debugging easy because we only have a single place where we need to check the logs.
@@ -79,7 +79,7 @@ Well well, mystery solved. We can now remove the evil programmers naughty code a
 
 You will notice that our flow is exactly the same, with the exception that our components are now distributed across the network.
 
-![Microservices sequence diagram](microservice-sequence.svg)
+![Microservices sequence diagram](micro-diag.svg)
 
 The following diagram now represents our network rather than the internals of our application, with each line representing a network call.
 
