@@ -10,6 +10,7 @@
   --title-color: #222;
   --subtitle-color: #333;
   --link-color: #2222ff;
+  --link-color-visited: purple;
 }
 
 /* @media (prefers-color-scheme: dark) { */
