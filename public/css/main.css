@@ -16,8 +16,8 @@
 /* @media (prefers-color-scheme: dark) { */
 [data-theme="dark"] {
   /* :root { */
-    --toolbar-background: #111;
-    --code-background: #202020;
+    --toolbar-background: rgb(27,27,27);
+    --code-background: rgb(27,27,27);
     --background-color: #252525;
     --text-color: #eee;
     --title-color: #eee;
