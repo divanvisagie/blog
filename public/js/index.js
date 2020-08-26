@@ -29,26 +29,26 @@ function toggleDarkMode() {
 
     detectColorScheme(); //apply the theme
 }
-(function() {
+// (function() {
 
 
-var currentTheme = getCurrentTheme();
+// var currentTheme = getCurrentTheme();
 
-themeToggleButton.innerText = getTextFor(getOpposite(currentTheme))
-themeToggleButton.onclick = toggleDarkMode
-themeToggleButton.style.display = 'block'
-themeToggleButton.style.top = '16px'
-themeToggleButton.style.right = '16px'
-themeToggleButton.style.position = 'absolute'
-themeToggleButton.style.height = '38px'
-themeToggleButton.style.width = '38px'
-themeToggleButton.style.border = 'none'
-themeToggleButton.style.background = 'none'
-themeToggleButton.style.color = 'white'
-themeToggleButton.style.fontSize = '24px'
-themeToggleButton.style.padding = '0'
-themeToggleButton.style.textAlign = 'center'
-themeToggleButton.style.userSelect = 'none'
-themeToggleButton.style.cursor = 'pointer'
-document.querySelector('nav').appendChild(themeToggleButton)
-}())
+// themeToggleButton.innerText = getTextFor(getOpposite(currentTheme))
+// themeToggleButton.onclick = toggleDarkMode
+// themeToggleButton.style.display = 'block'
+// themeToggleButton.style.top = '16px'
+// themeToggleButton.style.right = '16px'
+// themeToggleButton.style.position = 'absolute'
+// themeToggleButton.style.height = '38px'
+// themeToggleButton.style.width = '38px'
+// themeToggleButton.style.border = 'none'
+// themeToggleButton.style.background = 'none'
+// themeToggleButton.style.color = 'white'
+// themeToggleButton.style.fontSize = '24px'
+// themeToggleButton.style.padding = '0'
+// themeToggleButton.style.textAlign = 'center'
+// themeToggleButton.style.userSelect = 'none'
+// themeToggleButton.style.cursor = 'pointer'
+// document.querySelector('nav').appendChild(themeToggleButton)
+// }())
