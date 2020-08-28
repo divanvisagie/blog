@@ -237,7 +237,7 @@ table {
   margin-right: auto;
 }
 
-.themed
+.themed {
   filter: invert(1);
   background: transparent;
 }
