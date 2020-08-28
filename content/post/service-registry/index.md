@@ -28,7 +28,7 @@ If our servers are configured with a file like a *Web.config* or *application.pr
 
 You can think of a service registry as a central database of all the services that are currently running. When a new service or instance of a service is spun up, it registers itself with the service registry. 
 
-![registry_(1).svg](registry_(1).svg)
+<img alt="Collection of services behind a gateway using a service registry" src="registry_(1).svg" class="themed">
 
 Now, when a service needs to know about the location of another in order to make a call, it can be routed to the correct IP address based on the name.
 
