@@ -53,7 +53,7 @@ function detectColorScheme(){
         document.documentElement.setAttribute("data-theme", "dark");
     }
 }
-//detectColorScheme();
+detectColorScheme();
 (function() {
     var currentTheme = getCurrentTheme();
 
