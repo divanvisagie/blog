@@ -8,7 +8,7 @@ Microservice architectures are popular these days, but while they provide certai
 
 Lets take the following system as an example.
 
-![system.svg](system.svg)
+<img alt="Collection of services behind a gateway" src="system.svg" class="themed">
 
 In order for our gateway to be able to call the services it needs, it will have to know about:
 
