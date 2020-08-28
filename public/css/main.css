@@ -27,6 +27,11 @@
     --link-color-visited: #b48ead;
   /* } */
 }
+[data-theme="dark"]  .themed { //invert svgs if in dark mode
+  filter: invert(1);
+  background: transparent;
+}
+
 
 html {
   width: 100%;
