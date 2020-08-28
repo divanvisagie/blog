@@ -236,3 +236,8 @@ table {
   margin-left: auto;
   margin-right: auto;
 }
+
+.themed
+  filter: invert(1);
+  background: transparent;
+}
