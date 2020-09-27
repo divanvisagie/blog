@@ -4,7 +4,7 @@ subtitle: Documenting your Node.js express API with OpenAPI/Swagger
 date: 2020-09-27
 ---
 
-While there are many options for using Swagger/OpenAPI with express some of them require that you use an entire framework while others like to enforce strange structures that quite frankly feel like they interfere with your independant descisions way too much.
+While there are many options for using Swagger/OpenAPI with express some of them require that you use an entire framework, while others like to enforce strange structures that quite frankly feel like they interfere with your independant descisions way too much.
 
 In this tutorial I will cover what I think is the easiest way to [add documentation to your API](https://dvisagie.com/post/open-api/).
 
@@ -26,22 +26,20 @@ app.listen(port, () => {
 })
 ```
 
-We can test this by browsing to [http://localhost:8080](http://localhost:8080).
+We can test it by browsing to [http://localhost:8080](http://localhost:8080).
 
-Right, so now that we have an existing API lets add swagger documentation to it. We will be using `@wesleytodd/openapi`. Lets install that now.
+Right, so now that we have an existing API lets add swagger documentation to it. We will be using `@wesleytodd/openapi`. Which is a candidate for actually becomin @express/openapi some time in the future. Lets install it now using it's current name though.
 
 ```bash
 npm i @wesleytodd/openapi
 ```
 
 In order to use the library we must first import it
-
 ```js
 const openapi = require('@wesleytodd/openapi')
 ```
 
 Then before the endpoint we declare our openapi definition
-
 ```js
 ...
 const oapi = openapi({
@@ -56,7 +54,6 @@ const oapi = openapi({
 ```
 
 With our definition loaded we now import it as an express middleware with `app.use(...)`.
-
 ```js
 ...
 app.use(oapi)
@@ -66,7 +63,6 @@ app.use(oapi)
 You will now be able to access your openAPI definition at [http://localhost:8080/openapi.json](http://localhost:8080/openapi.json).
 
 However you will notice that this only contains our base definition and no information about our endpoint:
-
 ```json
 {
   "openapi": "3.0.0",
@@ -79,10 +75,9 @@ However you will notice that this only contains our base definition and no infor
 }
 ```
 
-In order to generate documentation for our endpoints we need to insert the relevant documentation information, this again makes use of the middleware api. A nice feature about the way it is done here is that the documentation structure is in JSON and maps directly to the way a normal swagger/openapi json file would look. This means that you can refer to the [official openapi documentation](https://swagger.io/specification/) and don't have to rely on library abstractions being correctly documented.
+In order to generate documentation for our endpoints we need to insert the relevant documentation information, this again makes use of the middleware API. A nice feature about the way it is done here is that the documentation structure is in JSON and maps directly to the way a normal Swagger/OpenAPI json file would look. This means that you can refer to the [official openapi documentation](https://swagger.io/specification/) and don't have to rely on the library abstractions being correctly documented.
 
 Our get endpoint now becomes:
-
 ```js
 app.get('/', oapi.path({
     tags: ['Hello'],
