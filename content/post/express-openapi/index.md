@@ -36,13 +36,13 @@ npm i @wesleytodd/openapi
 
 In order to use the library we must first import it
 
-```jsx
+```js
 const openapi = require('@wesleytodd/openapi')
 ```
 
 Then before the endpoint we declare our openapi definition
 
-```jsx
+```js
 ...
 const oapi = openapi({
     openapi: '3.0.0',
@@ -57,7 +57,7 @@ const oapi = openapi({
 
 With our definition loaded we now import it as an express middleware with `app.use(...)`.
 
-```jsx
+```js
 ...
 app.use(oapi)
 ...
@@ -83,7 +83,7 @@ In order to generate documentation for our endpoints we need to insert the relev
 
 Our get endpoint now becomes:
 
-```jsx
+```js
 app.get('/', oapi.path({
     tags: ['Hello'],
     summary: 'Get Hello',
@@ -153,7 +153,7 @@ With this change in place, the library now has enough information to generate th
 
 Having this documentation in JSON format can be super useful, you can even import it onto postman as a collection, however `@wesleytodd/openapi` also provides easy integration with SwaggerUI. Simply add `openapi.swaggerui` at any endpoint you desire, here I have chosen to put mine at the `/docs` route.
 
-```jsx
+```js
 app.use('/docs', oapi.swaggerui)
 ```
 
@@ -163,7 +163,7 @@ And that's it, we have documented an express API in what in my opinion is the cl
 
 Just in case you aren't quite sure where some of the code goes, here is a copy of the full API:
 
-```jsx
+```js
 const express = require('express')
 const openapi = require('@wesleytodd/openapi')
 
