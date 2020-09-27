@@ -10,7 +10,7 @@ In this tutorial I will cover what I think is the easiest way to [add documentat
 
 First let's put together a simple express app that simply returns the object `{greeting: 'Hello World'}`. 
 
-```jsx
+```js
 const express = require('express')
 const app = express()
 const port = 8080
