@@ -318,3 +318,6 @@ And browsing to our root path [http://localhost:8080/](http://localhost:8080/swa
 We have learned that OpenAPI is a standardised, machine readable document format designed for documenting RESTFul APIs. OpenAPI documents can be read by a multitude of different UI tools to make reading and testing these APIs easier. 
 
 It's also very simple to add documentation that can be generated using Swagger libraries. Hopefully you now see the value in documenting your APIs and that just a little work can assist both you and your API consumers in being way more productive.
+
+For concrete examples see:
+ - [Node.js/Express](https://dvisagie.com/post/express-openapi/)
