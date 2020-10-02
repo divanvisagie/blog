@@ -4,3 +4,4 @@ __pycache__
 .vscode
 env
 build
+pythonenv3.8
