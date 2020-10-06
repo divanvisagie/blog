@@ -16,7 +16,7 @@ async function getLayout() {
 /**
  * Process a markdown folder into a site page
  */
-async function processSimple(contentFolder, templateName) {
+async function processContent(contentFolder, templateName) {
     const templatePath = path
         .join(TEMPLATE_ROOT, `${templateName}.html`)
     const markdownPath = path
@@ -26,34 +26,40 @@ async function processSimple(contentFolder, templateName) {
     const contentMd = await fs.readFile(markdownPath, 'utf8')
     const layoutHtml = await getLayout()
 
-    // Put content html inside the template for this page
-    contentHtml = markdownToHtml(contentMd)
-    contentHtml = templateHtml.replace(CONTENT, contentHtml)
-
     // Put the content into the site layout template
     const htmlOut = layoutHtml
         .replace(TITLE, 'Divan Visagie')
         .replace(DESCRIPTION, `Divan's personal blog`)
         .replace(CARD_IMAGE, 'favicon.ico')
+        .replace(CONTENT,
+            templateHtml.replace(CONTENT,
+                markdownToHtml(contentMd)
+            )
+        )
 
     const contentFolderPath =
         path.join('.', OUT_DIR, contentFolder)
 
     if (!fs.existsSync(contentFolderPath)) {
-        await fs.mkdir(contentFolderPath)
+        await fs.mkdir(contentFolderPath, { recursive: true })
     }
 
     await fs.writeFile(
         path.join(contentFolderPath, 'index.html'),
         htmlOut
     )
+
+    await fs.copy(
+        path.join('./content', contentFolder),
+        contentFolderPath
+    )
 }
 
 async function buildPages() {
     console.log('Starting page build process')
-    await processSimple('about', 'about')
-
-    console.log('TODO: build the pages')
+    await processContent('about', 'about')
+    await processContent('cv', 'about')
+    await processContent('post/docker', 'post')
 }
 
 

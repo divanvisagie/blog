@@ -9,14 +9,14 @@ try:
 except:
     print('We are probably on a mac, lets swallow it... I''m not evil, honest!')
 
+
 def main():
-    # build()
+    build()
     server = Server()
-    server.watch('content/post/**/*.md',build)
+    server.watch('content/post/**/*.md', build)
     server.watch('public/**/*.css', build)
     server.serve(root='build')
 
+
 if __name__ == '__main__':
     main()
-
-
