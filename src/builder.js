@@ -4,8 +4,7 @@ const fs = require('fs-extra')
 const { markdownToHtml } = require('./markdown_processor')
 
 const { CONTENT, TITLE, DESCRIPTION, CARD_IMAGE, OUT_DIR, TEMPLATE_ROOT } = require('./replacement_tags')
-
-
+const { getPosts } = require('./posts')
 
 async function getLayout() {
     return await fs.readFile(
@@ -59,7 +58,10 @@ async function buildPages() {
     console.log('Starting page build process')
     await processContent('about', 'about')
     await processContent('cv', 'about')
-    await processContent('post/docker', 'post')
+
+    for (let post of await getPosts()) {
+        await processContent(`post/${post}`, 'post')
+    }
 }
 
 
