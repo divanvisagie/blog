@@ -18,7 +18,7 @@
 
 .hljs,
 .hljs-subst {
-  color: #D8DEE9;
+  color: #ccc;
 }
 
 .hljs-selector-tag {
@@ -90,7 +90,7 @@
 }
 
 .hljs-params {
-  color: #D8DEE9;
+  color: #ccc;
 }
 
 .hljs-bullet {
@@ -143,7 +143,7 @@
 }
 
 .hljs-attribute {
-  color: #D8DEE9;
+  color: #ccc;
 }
 
 .hljs-builtin-name {
@@ -163,11 +163,11 @@
 }
 
 .hljs-variable {
-  color: #D8DEE9;
+  color: #ccc;
 }
 
 .hljs-template-variable {
-  color: #D8DEE9;
+  color: #ccc;
 }
 
 .hljs-template-tag {
