@@ -197,6 +197,7 @@ footer {
   width: 100%;
   resize: none;
   object-fit: cover;
+  border-radius: 0;
 }
 
 .posts-list li {

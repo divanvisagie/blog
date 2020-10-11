@@ -56,17 +56,17 @@ async function processContent(contentFolder, templateName, meta = {}) {
         cardImage = urljoin(rootUrl, contentFolder, meta.header)
     }
 
+    let pageContent = templateHtml.replace(CONTENT, convertedMarkdown)
+    if (meta.header) {
+        pageContent = `<img class="post-header" alt="An image displayed as a header before the article for decorative purposes." src="${meta.header}"></img>\n${pageContent}`
+    }
 
     const htmlOut = layoutHtml
         .replace(TITLE, title)
         .split(TITLE).join(meta.title || 'Divan Visagie')
         .split(DESCRIPTION).join(meta.subtitle || `Divan's personal blog`)
         .split(CARD_IMAGE).join(cardImage)
-        .replace(CONTENT,
-            templateHtml.replace(CONTENT,
-                convertedMarkdown
-            )
-        )
+        .replace(CONTENT, pageContent)
 
     const contentFolderPath =
         path.join('.', OUT_DIR, contentFolder)
