@@ -1,10 +1,13 @@
 const path = require('path')
 const fs = require('fs-extra')
+const urljoin = require('url-join')
 
 const { markdownToHtml } = require('./markdown_processor')
 
 const { CONTENT, TITLE, DESCRIPTION, CARD_IMAGE, OUT_DIR, TEMPLATE_ROOT } = require('./replacement_tags')
 const { getPosts } = require('./posts')
+
+const rootUrl = 'https:\/\/dvisagie.com'
 
 async function getLayout() {
     return await fs.readFile(
@@ -44,11 +47,21 @@ async function processContent(contentFolder, templateName, meta = {}) {
 
     const convertedMarkdown = markdownToHtml(contentMd)
 
+    let cardImage = `${rootUrl}/favicon.ico`
+    if (!meta.header) {
+        const found = findFirstImage(convertedMarkdown)
+        if (found)
+            cardImage = urljoin(rootUrl, contentFolder, found)
+    } else {
+        cardImage = urljoin(rootUrl, contentFolder, meta.header)
+    }
+
+
     const htmlOut = layoutHtml
         .replace(TITLE, title)
         .split(TITLE).join(meta.title || 'Divan Visagie')
         .split(DESCRIPTION).join(meta.subtitle || `Divan's personal blog`)
-        .split(CARD_IMAGE).join(meta.header || findFirstImage(convertedMarkdown) || 'favicon.ico')
+        .split(CARD_IMAGE).join(cardImage)
         .replace(CONTENT,
             templateHtml.replace(CONTENT,
                 convertedMarkdown
