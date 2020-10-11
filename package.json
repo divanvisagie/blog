@@ -22,7 +22,8 @@
   "dependencies": {
     "fs-extra": "^9.0.1",
     "markdown-it": "^11.0.1",
-    "markdown-it-highlightjs": "^3.3.0"
+    "markdown-it-highlightjs": "^3.3.0",
+    "url-join": "^4.0.1"
   },
   "devDependencies": {
     "connect": "^3.7.0",
