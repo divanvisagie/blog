@@ -12,10 +12,21 @@ async function getLayout() {
     )
 }
 
+function findFirstImage(html) {
+    try {
+        return html.split('<img')[1]
+            .split('src="')[1]
+            .split('"')[0]
+            .trim()
+    } catch {
+        return //never go full python
+    }
+}
+
 /**
  * Process a markdown folder into a site page
  */
-async function processContent(contentFolder, templateName) {
+async function processContent(contentFolder, templateName, meta = {}) {
     const templatePath = path
         .join(TEMPLATE_ROOT, `${templateName}.html`)
     const markdownPath = path
@@ -26,13 +37,21 @@ async function processContent(contentFolder, templateName) {
     const layoutHtml = await getLayout()
 
     // Put the content into the site layout template
+    let title = ''
+    if (meta.title) {
+        title = `${meta.title} - `
+    }
+
+    const convertedMarkdown = markdownToHtml(contentMd)
+
     const htmlOut = layoutHtml
-        .replace(TITLE, 'Divan Visagie')
-        .replace(DESCRIPTION, `Divan's personal blog`)
-        .replace(CARD_IMAGE, 'favicon.ico')
+        .replace(TITLE, title)
+        .split(TITLE).join(meta.title || 'Divan Visagie')
+        .split(DESCRIPTION).join(meta.subtitle || `Divan's personal blog`)
+        .split(CARD_IMAGE).join(meta.header || findFirstImage(convertedMarkdown) || 'favicon.ico')
         .replace(CONTENT,
             templateHtml.replace(CONTENT,
-                markdownToHtml(contentMd)
+                convertedMarkdown
             )
         )
 
@@ -60,7 +79,8 @@ async function buildPages() {
     await processContent('cv', 'about')
 
     for (let post of await getPosts()) {
-        await processContent(`post/${post}`, 'post')
+        const meta = require(`../content/post/${post}/index.json`)
+        await processContent(`post/${post}`, 'post', meta)
     }
 }
 
