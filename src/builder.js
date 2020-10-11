@@ -92,13 +92,16 @@ async function processFolderWithTemplate(contentFolder, templateName) {
 }
 
 async function buildPages() {
+    const timer = 'Pages built'
     console.log('Starting page build process')
+    console.time(timer)
     await processFolderWithTemplate('about', 'about')
     await processFolderWithTemplate('cv', 'about')
 
     for (let post of await getPosts()) {
         await processFolderWithTemplate(`post/${post}`, 'post')
     }
+    console.timeEnd(timer)
 }
 
 
