@@ -29,7 +29,12 @@ function findFirstImage(html) {
 /**
  * Process a markdown folder into a site page
  */
-async function processContent(contentFolder, templateName, meta = {}) {
+async function processFolderWithTemplate(contentFolder, templateName) {
+    const metaPath = path.join(`./content`, contentFolder, `index.json`)
+    let meta = {};
+    if (fs.existsSync(metaPath))
+        meta = JSON.parse(await fs.readFile(metaPath, 'utf8'))
+
     const templatePath = path
         .join(TEMPLATE_ROOT, `${templateName}.html`)
     const markdownPath = path
@@ -47,7 +52,7 @@ async function processContent(contentFolder, templateName, meta = {}) {
 
     const convertedMarkdown = markdownToHtml(contentMd)
 
-    let cardImage = `${rootUrl}/favicon.ico`
+    let cardImage = `${rootUrl} / favicon.ico`
     if (!meta.header) {
         const found = findFirstImage(convertedMarkdown)
         if (found)
@@ -58,7 +63,7 @@ async function processContent(contentFolder, templateName, meta = {}) {
 
     let pageContent = templateHtml.replace(CONTENT, convertedMarkdown)
     if (meta.header) {
-        pageContent = `<img class="post-header" alt="An image displayed as a header before the article for decorative purposes." src="${meta.header}"></img>\n${pageContent}`
+        pageContent = `<img class="post-header" alt = "An image displayed as a header before the article for decorative purposes." src="${meta.header}" ></img >\n${pageContent}`
     }
 
     const htmlOut = layoutHtml
@@ -88,12 +93,11 @@ async function processContent(contentFolder, templateName, meta = {}) {
 
 async function buildPages() {
     console.log('Starting page build process')
-    await processContent('about', 'about')
-    await processContent('cv', 'about')
+    await processFolderWithTemplate('about', 'about')
+    await processFolderWithTemplate('cv', 'about')
 
     for (let post of await getPosts()) {
-        const meta = require(`../content/post/${post}/index.json`)
-        await processContent(`post/${post}`, 'post', meta)
+        await processFolderWithTemplate(`post/${post}`, 'post')
     }
 }
 
