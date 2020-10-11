@@ -28,6 +28,20 @@ function metaToJson(metaString) {
     return JSON.parse(`{${quoted}}`)
 }
 
+function addTitleSubtitleAndDate(md, metaJson) {
+    if (md.includes('class="title"')) return md
+    return `<h1 class="title">${metaJson.title}</h1>
+<h2 class="subtitle">${metaJson.subtitle}</h2>
+<span class="date">${metaJson.date}</span>
+${md}`
+}
+
+function addHeaderImage(md, metaJson) {
+    if (md.includes('class="post-header"')) return md
+    return `<img class="post-header" alt="An image displayed as a header before the article for decorative purposes." src="${metaJson.header}"></img>
+${md}`
+}
+
 async function main() {
     const posts = await fs.readdir('./content/post')
     posts.forEach(async post => {
@@ -41,13 +55,11 @@ async function main() {
         await fs.writeFile(indexJsonPath, JSON.stringify(metaJson, null, 2))
 
         //Convert markdown to metaInfo
+        strippedMarkdown = addTitleSubtitleAndDate(strippedMarkdown, metaJson)
         console.log(strippedMarkdown)
-        strippedMarkdown = `<h1 class="title">${metaJson.title}</h1>
-<h2 class="subtitle">${metaJson.subtitle}</h2>
-<span class="date">${metaJson.date}</span>
-${strippedMarkdown}`
 
-        // await fs.writeFile(indexMarkdownPath, strippedMarkdown)
+
+        await fs.writeFile(indexMarkdownPath, strippedMarkdown)
 
     })
 }
