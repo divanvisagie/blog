@@ -243,3 +243,10 @@ table {
 }
 
 
+.title {
+  margin-bottom: 0;
+}
+
+.subtitle {
+  margin: 0;
+}
