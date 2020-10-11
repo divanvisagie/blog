@@ -36,11 +36,6 @@ function addTitleSubtitleAndDate(md, metaJson) {
 ${md}`
 }
 
-function addHeaderImage(md, metaJson) {
-    if (md.includes('class="post-header"')) return md
-    return `<img class="post-header" alt="An image displayed as a header before the article for decorative purposes." src="${metaJson.header}"></img>
-${md}`
-}
 
 async function main() {
     const posts = await fs.readdir('./content/post')
