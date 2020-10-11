@@ -2,7 +2,7 @@
 <h2 class="subtitle">An introduction with examples using Unleash</h2>
 <span class="date">2020-01-10</span>
 
-In it's simplest form. A feature flag is an if statement. Lets take the example of an endpoint that returns the string `"Hello World"` when the user browses to [`/greeting`](http://locahost:8000/greeting):
+In it's simplest form. A feature flag is an if statement. Lets take the example of an endpoint that returns the string `"Hello World"` when the user browses to [/greeting](http://locahost:8000/greeting):
 
 ```ts
 app.get('/greeting', (req, res) => {
