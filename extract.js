@@ -5,10 +5,12 @@
 
 const fs = require('fs-extra')
 const os = require('os');
+const { markdownToHtml } = require('./src/markdown_processor');
 
 function getMarkdownMetaString(fullMarkdownString) {
-    const metaStringLines = fullMarkdownString.split('---')[1]
-    return metaStringLines
+    const split = fullMarkdownString.split('---')
+    const metaStringLines = split[1]
+    return [metaStringLines, split[2]]
 }
 
 function metaToJson(metaString) {
@@ -31,11 +33,22 @@ async function main() {
     posts.forEach(async post => {
         const indexMarkdownPath = `./content/post/${post}/index.md`
         const indexJsonPath = `./content/post/${post}/index.json`
+
+        //Create index.json from meta info
         const markdownString = await fs.readFile(indexMarkdownPath, 'utf8')
-        const metaJson = metaToJson(
-            getMarkdownMetaString(markdownString)
-        )
-        fs.writeFile(indexJsonPath, JSON.stringify(metaJson, null, 2))
+        let [metaString, strippedMarkdown] = getMarkdownMetaString(markdownString)
+        const metaJson = metaToJson(metaString)
+        await fs.writeFile(indexJsonPath, JSON.stringify(metaJson, null, 2))
+
+        //Convert markdown to metaInfo
+        console.log(strippedMarkdown)
+        strippedMarkdown = `<h1 class="title">${metaJson.title}</h1>
+<h2 class="subtitle">${metaJson.subtitle}</h2>
+<span class="date">${metaJson.date}</span>
+${strippedMarkdown}`
+
+        // await fs.writeFile(indexMarkdownPath, strippedMarkdown)
+
     })
 }
 main()

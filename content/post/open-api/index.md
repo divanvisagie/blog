@@ -1,8 +1,7 @@
----
-title: Documenting RESTful APIs
-subtitle: An introduction to OpenAPI and Swagger
-date: 2020-06-22
----
+<h1 class="title">Documenting RESTful APIs</h1>
+<h2 class="subtitle">An introduction to OpenAPI and Swagger</h2>
+<span class="date">2020-06-22</span>
+
 
 Let's say we are tasked with creating a RESTful API that will return a user object based on the user Id, e.g. `http://myApi/user/123` will return the user with the ID 123.
 

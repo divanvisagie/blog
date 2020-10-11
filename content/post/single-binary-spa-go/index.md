@@ -1,8 +1,7 @@
----
-title: A single binary SPA using Go
-subtitle: Using statik and echo with to serve up a single binary React app
-date: 2019-02-24
----
+<h1 class="title">A single binary SPA using Go</h1>
+<h2 class="subtitle">Using statik and echo with to serve up a single binary React app</h2>
+<span class="date">2019-02-24</span>
+
 ![Header Image](go-spa-head.png)
 
 I think one of the most elegant things that Go does is output a single portable binary. So when building a full web application, it would be nice to keep the output just as simple.

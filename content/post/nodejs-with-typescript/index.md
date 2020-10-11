@@ -1,9 +1,7 @@
----
-title: Node.js with TypeScript
-subtitle: Setting up a Node.js app with TypeScript, Nodemon, and Mocha/Chai tests
-date: 2019-01-02
-tags: ["typescript", "node"]
----
+<h1 class="title">Node.js with TypeScript</h1>
+<h2 class="subtitle">Setting up a Node.js app with TypeScript, Nodemon, and Mocha/Chai tests</h2>
+<span class="date">2019-01-02</span>
+
 ![Header Image](node-ts-head.png)
 
 >

@@ -1,10 +1,7 @@
----
-title: Moving from Medium
-subtitle: Does it make sense?
-date: 2019-06-03
-header: moving-from-medium.jpeg
-tags: ["opinion", "thoughts"]
----
+<h1 class="title">Moving from Medium</h1>
+<h2 class="subtitle">Does it make sense?</h2>
+<span class="date">2019-06-03</span>
+
 
 > **Update:**
 > While this site is still clearly no longer medium based, I have moved on from Hugo and have instead gone for my own implementation of a Markdown -> HTML converter

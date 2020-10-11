@@ -1,8 +1,7 @@
----
-title: Searching through a UITableView
-subtitle: An Objective-C tutorial
-date: 2012-11-02
----
+<h1 class="title">Searching through a UITableView</h1>
+<h2 class="subtitle">An Objective-C tutorial</h2>
+<span class="date">2012-11-02</span>
+
 
 ## Prerequisites
 

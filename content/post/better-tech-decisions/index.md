@@ -1,9 +1,7 @@
----
-title: Making better technology decisions
-subtitle: Facing the interminable news feed
-date: 2017-06-15
-header: tech-decisions.jpg
----
+<h1 class="title">Making better technology decisions</h1>
+<h2 class="subtitle">Facing the interminable news feed</h2>
+<span class="date">2017-06-15</span>
+
 
 Don’t reinvent the wheel! Build on the shoulders of giants! These terms have been irreversibly planted into our heads, and for good reason, but in an industry that is continually producing new options and opinions , it can be difficult to decide who’s shoulders to stand on.
 

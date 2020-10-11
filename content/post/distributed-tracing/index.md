@@ -1,8 +1,7 @@
----
-title: Distributed Request Tracing
-subtitle: Debugging across services
-date: 2020-04-18
----
+<h1 class="title">Distributed Request Tracing</h1>
+<h2 class="subtitle">Debugging across services</h2>
+<span class="date">2020-04-18</span>
+
 
 When working with traditional monolithic applications, you can very quickly become used to a certain style of debugging when something has gone wrong. Logs can reveal quite a lot on their own and the logs for each request may even [have a unique identifier](https://medium.com/@d.lopez.j/spring-boot-setting-a-unique-id-per-request-dd648efef2b) so that you can track down what went wrong with a particular request. If that fails, assuming you can replicate your issues on your developer environment, you can simply attach a debugger and watch for when the flow breaks.
 

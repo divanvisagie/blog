@@ -1,8 +1,7 @@
----
-title: Sbt heiroglyphs and multi-projects explained
-subtitle: A starter guide to understanding what an sbt file is actually saying
-date: 2016-06-24
----
+<h1 class="title">Sbt heiroglyphs and multi-projects explained</h1>
+<h2 class="subtitle">A starter guide to understanding what an sbt file is actually saying</h2>
+<span class="date">2016-06-24</span>
+
 
 ![SBT Logo](sbt-logo.png)
 

@@ -1,8 +1,7 @@
----
-title: Building a sentiment aware Polymer input control
-subtitle: A tale of a UI experiment and using CoreNLP in Scala
-date: 2017-10-01
----
+<h1 class="title">Building a sentiment aware Polymer input control</h1>
+<h2 class="subtitle">A tale of a UI experiment and using CoreNLP in Scala</h2>
+<span class="date">2017-10-01</span>
+
 
 If you scroll through your Twitter feed sometimes you may see a lot of negativity or tweets that make you ask yourself “Did this person read this before they posted?”. This made me think of the times I might have done this, and whether or not I would have posted so many negative tweets if I knew that most of them had a negative sentiment.
 

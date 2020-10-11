@@ -1,9 +1,7 @@
----
-title: Docker
-subtitle: The Why
-date: 2020-05-17
-header: header.jpg
----
+<h1 class="title">Docker</h1>
+<h2 class="subtitle">The Why</h2>
+<span class="date">2020-05-17</span>
+
 
 There are two types of people, those who think [Docker](https://www.docker.com/) is an absolute game changer when it comes to web application development, and those who don't know what Docker is. If you belong to the latter group, my goal here is to make you part of the former.
 
