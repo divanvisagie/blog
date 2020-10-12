@@ -14,13 +14,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Set up Node
+      
     - uses: actions/setup-node@v1
       with:
         node-version: '12'
-    - name: Install dependencies
-      run: npm install
-    - name: Build the html output
-      run: npm run build
+    - name: Build html
+    - run: npm install
+    - run: npm run build
         
     - name: GitHub Pages
       uses: crazy-max/ghaction-github-pages@v1.5.1
