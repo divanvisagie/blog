@@ -5,7 +5,7 @@ const urljoin = require('url-join')
 const { markdownToHtml } = require('./markdown_processor')
 
 const { CONTENT, TITLE, DESCRIPTION, CARD_IMAGE, OUT_DIR, TEMPLATE_ROOT } = require('./replacement_tags')
-const { getPosts } = require('./posts')
+const { getPosts, getPostLineItem } = require('./posts')
 
 const rootUrl = 'https:\/\/dvisagie.com'
 
@@ -89,6 +89,34 @@ async function processFolderWithTemplate(contentFolder, templateName) {
         path.join('./content', contentFolder),
         contentFolderPath
     )
+
+    return meta
+}
+
+async function processIndexPage(posts) {
+    const layoutHtml = await getLayout()
+    const indexHtml = await fs.readFile(
+        path.join(TEMPLATE_ROOT, 'index.html')
+    )
+
+    posts.sort((a, b) => {
+        const da = new Date(a.date)
+        const db = new Date(b.date)
+
+        console.log(da, db)
+        return db - da
+    })
+
+
+    const list = `${posts.map(getPostLineItem).join('')}`
+
+    const output = layoutHtml
+        .split(TITLE).join('')
+        .split(DESCRIPTION).join(`Divan's personal blog`)
+        .replace(CONTENT, indexHtml)
+        .replace(CONTENT, list)
+
+    await fs.writeFile('./build/index.html', output)
 }
 
 async function buildPages() {
@@ -98,9 +126,15 @@ async function buildPages() {
     await processFolderWithTemplate('about', 'about')
     await processFolderWithTemplate('cv', 'about')
 
+    const posts = []
     for (let post of await getPosts()) {
-        await processFolderWithTemplate(`post/${post}`, 'post')
+        const postMetadata = await processFolderWithTemplate(`post/${post}`, 'post')
+        postMetadata.name = post
+        posts.push(postMetadata)
     }
+
+    await processIndexPage(posts)
+
     console.timeEnd(timer)
 }
 

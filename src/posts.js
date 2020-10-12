@@ -5,4 +5,13 @@ async function getPosts() {
     return posts
 }
 
-module.exports = { getPosts }
+function getPostLineItem(post) {
+    return `<li>
+<a href="post/${post.name}">${post.title}</a>
+<span>${post.date}</span>
+<p>${post.subtitle}</p>
+</li>`
+
+}
+
+module.exports = { getPosts, getPostLineItem }
