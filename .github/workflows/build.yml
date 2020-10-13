@@ -1,48 +1,52 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
-name: Node.js application
+name: Python application
 
 on:
   push:
-    branches: [ trunk, js ]
+    branches: [trunk]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Node
-      
-    - uses: actions/setup-node@v1
-      name: Build
-      with:
-        node-version: '12'
-    - run: npm install
-    - run: npm run build
-        
-    - name: GitHub Pages
-      uses: crazy-max/ghaction-github-pages@v1.5.1
-      with:
-        # GitHub repository where assets will be deployed (default current)
-        repo: divanvisagie/divanvisagie.github.io
-        # Git branch where assets will be deployed
-        target_branch: master
-        # Create incremental commit instead of doing push force
-        keep_history: false
-        # Allow an empty commit to be created
-        allow_empty_commit: true # optional, default is true
-        # Build directory to deploy
-        build_dir: build
-        # Commit author's name
-        committer_name: Divan Visagie
-        # Commit author's email
-        committer_email: me@dvisagie.com # optional
-        # Commit message
-        commit_message: ${{ github.actor }} # optional
-        # Write the given domain name to the CNAME file
-        fqdn: dvisagie.com # optional
-      env:
-        GITHUB_USERNAME: ${{ github.actor }}
-        GITHUB_PAT: ${{ secrets.MY_TOKEN }}
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 pytest
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Build the html output
+        run: |
+          python build.py
+
+      - name: GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v1.5.1
+        with:
+          # GitHub repository where assets will be deployed (default current)
+          repo: divanvisagie/divanvisagie.github.io
+          # Git branch where assets will be deployed
+          target_branch: master
+          # Create incremental commit instead of doing push force
+          keep_history: false
+          # Allow an empty commit to be created
+          allow_empty_commit: true # optional, default is true
+          # Build directory to deploy
+          build_dir: build
+          # Commit author's name
+          committer_name: Divan Visagie
+          # Commit author's email
+          committer_email: me@dvisagie.com # optional
+          # Commit message
+          commit_message: ${{ github.actor }} # optional
+          # Write the given domain name to the CNAME file
+          fqdn: dvisagie.com # optional
+        env:
+          GITHUB_USERNAME: ${{ github.actor }}
+          GITHUB_PAT: ${{ secrets.MY_TOKEN }}
