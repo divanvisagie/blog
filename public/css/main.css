@@ -13,7 +13,6 @@
   --link-color-visited: purple;
 }
 
-/* @media (prefers-color-scheme: dark) { */
 [data-theme="dark"] {
   /* :root { */
     --toolbar-background: rgb(27,27,27);
@@ -25,7 +24,6 @@
     --footer-background:#202020;
     --link-color: #81a1c1;
     --link-color-visited: #b48ead;
-  /* } */
 }
 [data-theme="dark"]  .themed { 
   filter: invert(1);
