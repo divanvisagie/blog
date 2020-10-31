@@ -48,6 +48,7 @@ a:visited {
 }
 
 nav {
+  user-select: none;
   font-kerning: auto;
   background: var(--toolbar-background);
   overflow: hidden;
