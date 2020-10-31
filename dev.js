@@ -1,20 +1,24 @@
-const connect = require('connect')
-const static = require('serve-static')
-const livereload = require('livereload')
+const express = require('express')
+const path = require('path')
+const connectLivereload = require('connect-livereload')
+const buildPath = path.join(__dirname, 'build')
 
-const PORT = 3000;
+const app = express()
 
+const PORT = 3000
 
+app.use(express.static(buildPath))
 
+// live reload script
+var liveReloadPort = 35729;
+var excludeList = ['.woff', '.flv'];
 
-/**
- * Set up a server that will continuously update when the build directory updates
- */
-const server = connect()
-server.use(static(__dirname + '/build'))
-server.listen(PORT, () => {
+app.use(require('connect-livereload')({
+    port: liveReloadPort,
+    excludeList: excludeList
+}));
+
+app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`)
-});
+})
 
-var lrserver = livereload.createServer()
-lrserver.watch(__dirname + '/build')
