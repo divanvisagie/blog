@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: "12"
       - run: npm install
-      - run: npm build
+      - run: npm run build
 
       - name: GitHub Pages
         uses: crazy-max/ghaction-github-pages@v1.5.1
