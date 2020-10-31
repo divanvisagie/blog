@@ -11,6 +11,7 @@
   --subtitle-color: #333;
   --link-color: #0555b1;
   --link-color-visited: purple;
+  --button-width: 48px;
 }
 
 [data-theme="dark"] {
@@ -247,4 +248,33 @@ table {
 
 .subtitle {
   margin: 0;
+}
+
+
+/*
+  Dark mode yin yang button
+  https://css-tricks.com/creating-yin-yang-loaders-web/
+*/
+#darkmode-button {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  background: linear-gradient(black 50%, white 0);
+}
+
+#darkmode-button:before, #darkmode-button:after {
+  flex: 1;
+  height: 50%;
+  border-radius: 50%;
+  background: black;
+  border: solid 7px white;
+  box-sizing: border-box;
+  content: '';
+}
+
+#darkmode-button:after {
+  background: white;
+  border-color: black;
 }
