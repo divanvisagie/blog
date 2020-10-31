@@ -103,7 +103,7 @@ async function processIndexPage(posts) {
         const da = new Date(a.date)
         const db = new Date(b.date)
 
-        console.log(da, db)
+        // console.log(da, db)
         return db - da
     })
 

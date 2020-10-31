@@ -17,9 +17,12 @@ async function copyPublic() {
 }
 
 async function build() {
+    console.log('Building website...')
     await createBuildDir()
     await copyPublic()
     await buildPages()
 }
 
 build()
+
+module.exports = { build }
