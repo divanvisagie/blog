@@ -5,7 +5,7 @@ name: Node application
 
 on:
   push:
-    branches: [trunk, js]
+    branches: [trunk]
 
 jobs:
   build:
