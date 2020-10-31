@@ -1,5 +1,6 @@
-const MarkdownIt = require('markdown-it')
-const md = new MarkdownIt()
+const md = require('markdown-it')({
+    html: true
+}).use(require('markdown-it-highlightjs'), { inline: true })
 
 function markdownToHtml(htmlString) {
     return md.render(htmlString)

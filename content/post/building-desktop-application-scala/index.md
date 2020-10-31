@@ -1,8 +1,7 @@
----
-title: Building and distributing a cross platform desktop UI in Scala
-subtitle: Is ScalaFX the way to go?
-date: 2018-09-23
----
+<h1 class="title">Building and distributing a cross platform desktop UI in Scala</h1>
+<h2 class="subtitle">Is ScalaFX the way to go?</h2>
+<span class="date">2018-09-23</span>
+
 ![Picture of Fret Mapper application](desktop-scala-head.png)
 
 Some time ago I wrote about my experience [writing a small Desktop UI in Go](https://dvisagie.com/post/building-a-desktop-ui-in-go/) using libui. I ended off by saying that I would attempt something in Kotlin next, this project did start in Kotlin, however I switched to Scala after a short time for a reason based solely on personal preference(Kotlin is a better Java but a worse Scala in my opinion). But enough of that, here is what happened when I finally settled on a tech.

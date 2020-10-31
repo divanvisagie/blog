@@ -1,8 +1,7 @@
----
-title: Node.js Web Sockets and iOS
-subtitle: A Web/Node.JS/iOS tutorial
-date: 2012-12-02
----
+<h1 class="title">Node.js Web Sockets and iOS</h1>
+<h2 class="subtitle">A Web/Node.JS/iOS tutorial</h2>
+<span class="date">2012-12-02</span>
+
 
 
 This tutorial will be broken up into 3 sections.

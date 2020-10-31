@@ -1,8 +1,7 @@
----
-title: Adding OpenAPI to an Express app
-subtitle: Documenting your Node.js express API with OpenAPI/Swagger
-date: 2020-09-27
----
+<h1 class="title">Adding OpenAPI to an Express app</h1>
+<h2 class="subtitle">Documenting your Node.js express API with OpenAPI/Swagger</h2>
+<span class="date">2020-09-27</span>
+
 
 While there are many options for using Swagger/OpenAPI with express some of them require that you use an entire framework, while others like to enforce strange structures that quite frankly feel like they interfere with your independant descisions way too much.
 

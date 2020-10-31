@@ -16,9 +16,10 @@ async function copyPublic() {
     await copy(startPath, targetPath)
 }
 
-async function main() {
+async function build() {
     await createBuildDir()
     await copyPublic()
     await buildPages()
 }
-main()
+
+build()

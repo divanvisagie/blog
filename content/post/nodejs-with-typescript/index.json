@@ -1,0 +1,9 @@
+{
+  "title": "Node.js with TypeScript",
+  "subtitle": "Setting up a Node.js app with TypeScript, Nodemon, and Mocha/Chai tests",
+  "date": "2019-01-02",
+  "tags": [
+    "typescript",
+    "node"
+  ]
+}
