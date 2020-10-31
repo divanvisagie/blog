@@ -1,32 +1,24 @@
 # Blog
 
-Source code for generating my personal blog written in python.
+Source code for generating my personal blog written in NodeJS.
 
-The posts are all written in markdown and then processed into HTML with this custom code. The output is pushed as a submodule to my gh-pages site.
-
-
-To update the submodule
-```bash
-git submodule update --init --recursive
-```
+The posts are all written in markdown and then processed into HTML with this custom code. The output is pushed via GitHub actions to the GitHub pages repository.
 
 ## Running
 
-To run we first have to set up a python environment
+Project setup:
 ```sh
-python -m venv env
-python venv env
-pip install -r requirements.txt
+npm install
 ```
 
 To build:
 ```sh
-./build.py
+npm run build
 ```
 
 For development, live reload server:
 ```
-./dev.py
+npm run dev
 ```
 
 
@@ -35,6 +27,5 @@ Image optimization should be done in source prior to committing or publishing a 
 optimize-images content/post/[the post in question] -cb -fd
 ```
 
-Syntax highlight Theme: https://github.com/sbrisard/nord_pygments
 
 Publish to medium using [mdium](https://github.com/icyphox/mdium)
