@@ -37,7 +37,8 @@ function handleFileChange() {
 
 const watcher = chokidar.watch([
     './templates',
-    './content'
+    './content',
+    './public'
 ], {
 })
 

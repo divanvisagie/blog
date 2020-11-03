@@ -11,21 +11,22 @@
   --subtitle-color: #333;
   --link-color: #0555b1;
   --link-color-visited: purple;
+  --button-width: 48px;
+  --angle: 90deg;
 }
 
 [data-theme="dark"] {
-  /* :root { */
-    --toolbar-background: rgb(27,27,27);
-    --code-background: rgb(27,27,27);
-    --background-color: #282828;
-    --text-color: #eee;
-    --title-color: #eee;
-    --subtitle-color: #d0d0d0;
-    --footer-background:#202020;
-    --link-color: #81a1c1;
-    --link-color-visited: #b48ead;
+  --toolbar-background: #222222;
+  --code-background: #222;
+  --background-color: #282828;
+  --text-color: #eee;
+  --title-color: #eee;
+  --subtitle-color: #d0d0d0;
+  --footer-background:#202020;
+  --link-color: #81a1c1;
+  --link-color-visited: #b48ead;
 }
-[data-theme="dark"]  .themed { 
+[data-theme="dark"] .themed { 
   filter: invert(1);
   background: transparent;
 }
@@ -82,9 +83,9 @@ nav .links {
   width: fit-content;
 }
 
-@media (max-width: 860px) {
-  nav .links {
-    margin-right: 10px;
+@media (max-width: 436px) {
+  .full {
+    display: none;
   }
 }
 
@@ -248,3 +249,64 @@ table {
 .subtitle {
   margin: 0;
 }
+
+
+/*
+  Dark mode yin yang button
+  https://css-tricks.com/creating-yin-yang-loaders-web/
+*/
+#darkmode-button {
+  cursor: pointer;
+  user-select: none;
+  transform: rotate(90deg);
+  transition: linear 270ms;
+  padding-right: 0;
+  margin-top: 9px;
+  margin-left: 10px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  background: linear-gradient(var(--toolbar-background) 50%, white 0);
+}
+
+/* Light Mode */
+#darkmode-button .black, #darkmode-button .white {
+  flex-direction: row;
+  border-radius: 50%;
+  background: var(--toolbar-background);
+  border: solid 7px white;
+  content: '';
+  box-sizing: border-box;
+}
+#darkmode-button .black { /*Black circle*/
+  width: 30px;
+  height: 30px;
+}
+#darkmode-button .white { /*white circle*/
+  background: white;
+  border-color: var(--toolbar-background);
+  width: 18px;
+  height: 18px;
+}
+
+/* Dark Mode */
+[data-theme="dark"] #darkmode-button { 
+  transform: rotate(270deg);
+}
+
+[data-theme="dark"] #darkmode-button .black { /*Black circle*/
+  width: 18px !important;
+  height: 18px !important;
+}
+
+[data-theme="dark"] #darkmode-button .white { /*White circle*/
+  width: 30px !important;
+  height: 30px !important;
+}
+
+
+
+
+
