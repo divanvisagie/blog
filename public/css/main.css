@@ -12,21 +12,21 @@
   --link-color: #0555b1;
   --link-color-visited: purple;
   --button-width: 48px;
+  --angle: 90deg;
 }
 
 [data-theme="dark"] {
-  /* :root { */
-    --toolbar-background: rgb(27,27,27);
-    --code-background: rgb(27,27,27);
-    --background-color: #282828;
-    --text-color: #eee;
-    --title-color: #eee;
-    --subtitle-color: #d0d0d0;
-    --footer-background:#202020;
-    --link-color: #81a1c1;
-    --link-color-visited: #b48ead;
+  --toolbar-background: rgb(27,27,27);
+  --code-background: rgb(27,27,27);
+  --background-color: #282828;
+  --text-color: #eee;
+  --title-color: #eee;
+  --subtitle-color: #d0d0d0;
+  --footer-background:#202020;
+  --link-color: #81a1c1;
+  --link-color-visited: #b48ead;
 }
-[data-theme="dark"]  .themed { 
+[data-theme="dark"] .themed { 
   filter: invert(1);
   background: transparent;
 }
@@ -256,19 +256,22 @@ table {
   https://css-tricks.com/creating-yin-yang-loaders-web/
 */
 #darkmode-button {
+  transition: linear 240ms;
+  margin-top: 9px;
   width: 48px;
   height: 48px;
   display: flex;
   border-radius: 50%;
   align-items: center;
-  background: linear-gradient(black 50%, white 0);
+  background: linear-gradient(var(--toolbar-background) 50%, white 0);
+  transform: rotate(90deg);
 }
 
 #darkmode-button:before, #darkmode-button:after {
   flex: 1;
   height: 50%;
   border-radius: 50%;
-  background: black;
+  background: var(--toolbar-background);
   border: solid 7px white;
   box-sizing: border-box;
   content: '';
@@ -276,5 +279,12 @@ table {
 
 #darkmode-button:after {
   background: white;
-  border-color: black;
+  border-color: var(--toolbar-background);
 }
+
+[data-theme="dark"] #darkmode-button { 
+  transform: rotate(270deg);
+}
+
+
+
