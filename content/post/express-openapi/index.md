@@ -40,7 +40,7 @@ const openapi = require('@wesleytodd/openapi')
 
 Then before the endpoint we declare our openapi definition
 ```js
-...
+// ...
 const oapi = openapi({
     openapi: '3.0.0',
     info: {
@@ -49,14 +49,14 @@ const oapi = openapi({
         version: '1.0.0'
     }
 })
-...
+// ...
 ```
 
 With our definition loaded we now import it as an express middleware with `app.use(...)`.
 ```js
-...
+// ...
 app.use(oapi)
-...
+// ...
 ```
 
 You will now be able to access your openAPI definition at [http://localhost:8080/openapi.json](http://localhost:8080/openapi.json).
