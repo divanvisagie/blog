@@ -1,13 +1,7 @@
 # About me
 ## What is this website?
 
-Well the short answer is: It's my blog, but who am I?
+The goal of this website is for me to share the knowledge I have obtained in my 8 year Software Engingeering career. I cover topics from simple to advanced in a way that is more descriptive than prescriptive. I am not here to sell you on any particular technology but to provide solutions to common problems. Since those problems are focused on career and not programming, I will sometimes write about soft skills as well.
 
-I'm Divan, a Software Engineer with 8 years of programming experience, 6 years of which are in consulting. 
 
-Over those years I have had the opportunity to work on systems that range from mobile to web to large multinational scalable microservices.
-
-I have a passion for assisting businesses with their technology solutions in order to deliver maximum value and reduce costs.
-
-The goal of this website is for me to share knowledge with the community, covering topics from simple to advanced in a way that is more descriptive than prescriptive. I am not here to sell you on any particular technology but to provide solutions to common problems.
 
