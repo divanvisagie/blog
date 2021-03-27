@@ -95,10 +95,10 @@ nav h1 {
 }
 
 nav h2 {
-  padding-top: 2px;
+  padding-top: 4px;
   font-weight: 400;
   padding-right: 22px;
-  font-size: 22px;
+  font-size: larger;
   float: right;
 }
 
@@ -109,7 +109,7 @@ body {
   position: absolute;
   width:100%;
   min-height: 100vh;
-  font-size: 17px;
+  font-size: medium;
   line-height: 1.47;
   letter-spacing: -0.010em;
 }
@@ -141,7 +141,6 @@ pre, .codehilite {
 pre {
   background: var(--code-background);
   color: var(--code-foreground);
-  font-size: 16px;
   overflow-x: auto;
 }
 
@@ -208,9 +207,14 @@ footer {
 }
 
 .posts-list span {
-  font-size: 12px;
+  font-size: small;
   color: var(--subtitle-color);
   justify-content: right;
+}
+
+code {
+  font-size: medium;
+  font-family: 'Roboto Mono', 'Andale Mono', monospace;
 }
 
 p > code, li > code {
@@ -219,14 +223,13 @@ p > code, li > code {
     padding-left: 5px;
     padding-right: 5px;
     border-radius: 5px;
-    font-family: monospace;
 }
 
 
 .date {
   color: var(--subtitle-color);
   opacity: 0.9; 
-  font-size: 12px;
+  font-size: small;
 }
 
 table, td, th {
