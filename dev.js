@@ -18,7 +18,7 @@ var excludeList = ['.woff', '.flv'];
 app.use(require('connect-livereload')({
     port: liveReloadPort,
     excludeList: excludeList
-}));
+}))
 
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`)
