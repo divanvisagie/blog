@@ -16,9 +16,9 @@
 }
 
 [data-theme="dark"] {
-  --toolbar-background: #222222;
-  --code-background: #222;
-  --background-color: #282828;
+  --toolbar-background: #181818;
+  --code-background: #181818;
+  --background-color: #111;
   --text-color: #eee;
   --title-color: #eee;
   --subtitle-color: #d0d0d0;
