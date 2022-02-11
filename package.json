@@ -21,7 +21,7 @@
   "homepage": "https://github.com/divanvisagie/blog#readme",
   "dependencies": {
     "fs-extra": "^9.0.1",
-    "markdown-it": "^11.0.1",
+    "markdown-it": "^12.3.2",
     "markdown-it-highlightjs": "^3.3.1",
     "nodemon": "^2.0.6",
     "url-join": "^4.0.1"
