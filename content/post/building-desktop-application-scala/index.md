@@ -4,7 +4,7 @@
 
 ![Picture of Fret Mapper application](desktop-scala-head.png)
 
-Some time ago I wrote about my experience [writing a small Desktop UI in Go](https://dvisagie.com/post/building-a-desktop-ui-in-go/) using libui. I ended off by saying that I would attempt something in Kotlin next, this project did start in Kotlin, however I switched to Scala after a short time for a reason based solely on personal preference(Kotlin is a better Java but a worse Scala in my opinion). But enough of that, here is what happened when I finally settled on a tech.
+Some time ago I wrote about my experience [writing a small Desktop UI in Go](https://divanv.com/post/building-a-desktop-ui-in-go/) using libui. I ended off by saying that I would attempt something in Kotlin next, this project did start in Kotlin, however I switched to Scala after a short time for a reason based solely on personal preference(Kotlin is a better Java but a worse Scala in my opinion). But enough of that, here is what happened when I finally settled on a tech.
 
 ## The Application
 
@@ -56,15 +56,15 @@ And this PowerShell script for the Windows build.
 $tag = (git name-rev --name-only --tags HEAD)
 
 
-if ($tag -like '*undefined*') { 
+if ($tag -like '*undefined*') {
   Write-Output "This branch is not tagged, skipping deploy"
 } else {
   Write-Output "Tag is $tag, Initiating deployment process"
   mkdir .\Tools
   $path = ".\Tools"
   $file = "$path\ghr.zip"
-  
-  
+
+
   (New-Object Net.WebClient).DownloadFile('https://github.com/tcnksm/ghr/releases/download/v0.5.4/ghr_v0.5.4_windows_amd64.zip',$file)
   (New-Object -com shell.application).namespace($path).CopyHere((new-object -com shell.application).namespace($file).Items(),16)
   .\Tools\ghr.exe -u divanvisagie $tag target/universal/jdkpackager/bundles

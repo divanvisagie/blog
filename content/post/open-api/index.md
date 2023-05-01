@@ -2,7 +2,6 @@
 <h2 class="subtitle">An introduction to OpenAPI and Swagger</h2>
 <span class="date">2020-06-22</span>
 
-
 Let's say we are tasked with creating a RESTful API that will return a user object based on the user Id, e.g. `http://myApi/user/123` will return the user with the ID 123.
 
 ```js
@@ -15,7 +14,7 @@ Let's say we are tasked with creating a RESTful API that will return a user obje
 }
 ```
 
-This endpoint is to be consumed by other developers in our company as part of a micro-services architecture. We cannot simply leave this endpoint undocumented, since this would require anyone consuming our service to have to open up and read our code in order to understand if our service is even what they were looking for. 
+This endpoint is to be consumed by other developers in our company as part of a micro-services architecture. We cannot simply leave this endpoint undocumented, since this would require anyone consuming our service to have to open up and read our code in order to understand if our service is even what they were looking for.
 
 So, we need to document which endpoints we have and what sort of objects they return. However we need to do it in a way that is easy to read for a developer, even if they are using a completely different language to consume our API.
 
@@ -130,7 +129,7 @@ Below is an example of a personal project of mine in which I have packaged Swagg
 
 ![Untitled%201.png](Untitled%201.png)
 
-You will notice that here you can actually expand this endpoint and make calls to the API using the Swagger UI, and since it is packaged with the service, we don't have to even configure the base URL, it's all in context. 
+You will notice that here you can actually expand this endpoint and make calls to the API using the Swagger UI, and since it is packaged with the service, we don't have to even configure the base URL, it's all in context.
 
 ![Untitled%202.png](Untitled%202.png)
 
@@ -140,7 +139,7 @@ Schemas representing the Objects that are either sent to or returned from the AP
 
 # Generating Documentation
 
-So, we have addressed the readability concerns one might have with an OpenAPI specification document, however even our small single endpoint is a fairly long document to write by hand. 
+So, we have addressed the readability concerns one might have with an OpenAPI specification document, however even our small single endpoint is a fairly long document to write by hand.
 
 This is where Auto-Generated OpenAPI documentation comes in, and since OpenAPI is so popular, there is a library for generating OpenAPI/Swagger docs for most of the popular programming languages.
 
@@ -150,7 +149,7 @@ Now for some languages, setting up auto generated OpenAPI documentation requires
 
 ## Java Example
 
-Lets take our user endpoint from earlier as an example. Here I will implement the user endpoint in Java using Spring Boot. 
+Lets take our user endpoint from earlier as an example. Here I will implement the user endpoint in Java using Spring Boot.
 
 After creating a simple [Spring Boot](https://spring.io/projects/spring-boot) project with [Spring Initializr](https://start.spring.io/), very little code needs to be added in order to to get a working mock endpoint.
 
@@ -185,7 +184,7 @@ public class User {
     private String email;
     private String accountStatus;
 
-    ... 
+    ...
     //Getters and Setters defined offscreen
 }
 ```
@@ -194,11 +193,11 @@ This is now enough that when I run it and browse to [http://localhost:8080/user/
 
 ```json
 {
-    "id": 123,
-    "username": "fake",
-    "displayName": "Fake User",
-    "email": "fakeEmail@test.com",
-    "accountStatus": "Activated"
+  "id": 123,
+  "username": "fake",
+  "displayName": "Fake User",
+  "email": "fakeEmail@test.com",
+  "accountStatus": "Activated"
 }
 ```
 
@@ -231,80 +230,78 @@ Browsing to [http://localhost:8080/v3/api-docs](http://localhost:8080/v3/api-doc
 
 ```json
 {
-    "openapi": "3.0.1",
-    "info": {
-        "title": "User Service",
-        "description": "Service for user management",
-        "termsOfService": "http://swagger.io/terms/",
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://springdoc.org"
-        },
-        "version": "v1"
+  "openapi": "3.0.1",
+  "info": {
+    "title": "User Service",
+    "description": "Service for user management",
+    "termsOfService": "http://swagger.io/terms/",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://springdoc.org"
     },
-    "servers": [
-        {
-            "url": "http://localhost:8080",
-            "description": "Generated server url"
-        }
-    ],
-    "paths": {
-        "/user/{id}": {
-            "get": {
-                "tags": [
-                    "user-controller"
-                ],
-                "operationId": "getUser",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "default response",
-                        "content": {
-                            "*/*": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/User"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    },
-    "components": {
-        "schemas": {
-            "User": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    "username": {
-                        "type": "string"
-                    },
-                    "displayName": {
-                        "type": "string"
-                    },
-                    "email": {
-                        "type": "string"
-                    },
-                    "accountStatus": {
-                        "type": "string"
-                    }
-                }
-            }
-        }
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "Generated server url"
     }
+  ],
+  "paths": {
+    "/user/{id}": {
+      "get": {
+        "tags": ["user-controller"],
+        "operationId": "getUser",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "username": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "accountStatus": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
 }
 ```
 
@@ -314,9 +311,10 @@ And browsing to our root path [http://localhost:8080/](http://localhost:8080/swa
 
 # Summary
 
-We have learned that OpenAPI is a standardised, machine readable document format designed for documenting RESTFul APIs. OpenAPI documents can be read by a multitude of different UI tools to make reading and testing these APIs easier. 
+We have learned that OpenAPI is a standardised, machine readable document format designed for documenting RESTFul APIs. OpenAPI documents can be read by a multitude of different UI tools to make reading and testing these APIs easier.
 
 It's also very simple to add documentation that can be generated using Swagger libraries. Hopefully you now see the value in documenting your APIs and that just a little work can assist both you and your API consumers in being way more productive.
 
 For concrete examples see:
- - [Node.js/Express](https://dvisagie.com/post/express-openapi/)
+
+- [Node.js/Express](https://divanv.com/post/express-openapi/)
