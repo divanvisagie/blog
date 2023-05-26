@@ -8,7 +8,7 @@ Rust has been on my interest radar for some time now, but I like to actually sol
 
 I knew that Skyrim prompted you when you loaded a save game if you were missing any mods, so I figured that the mod list must be stored in the save files themselves. I also figured that Vortex must be reading from some kind of list for load order, and even seemed to have links back to the mods on Nexus Mods, so we could not only provide a list of required mods (which the game does anyway) but also links to the mods themselves if they were missing.
 
-I had a look at the save files and found out that, rather unsupprisingly, that they were in a binary format. I know that NodeJS by default reads files in bytes, so after poking around some example files with a hex editor, I prototyped reading some information out of the file in NodeJS.
+I had a look at the save files and found out that, rather unsupprisingly, that they were in a binary format. I know that NodeJS by default reads files in bytes, so after poking around some example files with a [hex editor](https://marketplace.visualstudio.com/items?itemName=ms-vscode.hexeditor), I prototyped reading some information out of the file in NodeJS.
 
 There was a problem though, my friend is not a programmer, and I eventually wanted this to end up being distributed not just to them, but be freely available for all Skyim players to use. It just made more sense to distribute this as a binary. As someone who actually want's the planet to still exist in the future, I didn't want to create another Electron app though.
 
