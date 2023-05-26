@@ -32,4 +32,4 @@ We are already seeing some software patterns emerge from people writing software
 
 I think we are seeing a new frontier, and I am excited to see what we can build with it. I think the software world has become rather stagnant. Some of the most reccomended books surrounding software and software architecture were written by people who now have grandchildren. I think it's time for us to start thinking about how we can use these new tools to build new things in new ways, invent new patterns and please, write some new books.
 
-I'm personnally embarking on a journey to try and [develop new patterns](https://github.com/divanvisagie/Layer-Capability-Pattern) around this kind of software, and I hope anyone reading this will try this too. I personally beleive that the future of software systems, is Structured Intelligence.
+I'm personnally embarking on a journey to try and [develop new patterns](https://github.com/divanvisagie/Layer-Capability-Pattern) around this kind of software, through experimentation and I hope anyone reading this will be inspired to do the same. I personally beleive that the future of software systems that integrate AI, is Structured Intelligence.
