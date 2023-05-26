@@ -1,5 +1,5 @@
 <h1 class="title">Structured intelligence</h1>
-<h2 class="subtitle">Proposing a term for a New Paradigm in Software Architecture</h2>
+<h2 class="subtitle">Proposing a term for the New Paradigm in Software Architecture</h2>
 <span class="date">2023-05-26</span>
 
 In the time when I [was toying with sentiment analysis](https://divanv.com/post/polymer-sentiment-aware/) in 2017, I came to a conclusion about AI driven systems as they applied to me as a Software Engineer who isn't a data scientist and doesn't run their own machine learning clusters: I am not the person who is going to train or run the greatest model, when that model comes, it will be too expensive to run locally, and will probably require special hardware. Who I am is the person who is going to use the model, probably consume it as a library, and I am going to use it to solve a problem. My job will not be to train the model but to integrate it into systems in a useful way.
