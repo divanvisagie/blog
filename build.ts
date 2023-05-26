@@ -1,4 +1,3 @@
-// const { mkdir } = require("fs").promises;
 import { existsSync } from 'fs'
 import { copy } from 'fs-extra'
 import { mkdir } from 'fs/promises'
